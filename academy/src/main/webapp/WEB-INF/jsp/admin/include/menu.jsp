@@ -116,27 +116,24 @@
 	                                        </ul>
                                         	</c:if>
                                         </li>
-                                        <li <c:if test="${fn:indexOf(fullURL, '/banner/list') > -1}">class="nav_active"</c:if>>
-                                            <a href="${pageContext.request.contextPath}/admin/banner/list.do">배너 관리</a>
-                                        </li>
                                     </ul>
                                 </li>
-                                <li <c:if test="${fn:indexOf(fullURL , '/file/') > -1}">
+                                <li <c:if test="${fn:indexOf(fullURL , '/program/') > -1} ">
                                     class="adm_menu_active"
                                     </c:if>>
-                                    <a href="${pageContext.request.contextPath}/admin/file/list.do">
-                                        <img src="${pageContext.request.contextPath}/resources/img/admin/file_icon.png" alt="파일관리" />
+                                    <a href="${pageContext.request.contextPath}/admin/program/list.do">
+                                        <img src="${pageContext.request.contextPath}/resources/img/admin/program_icon.png" alt="프로그램관리" />
                                     </a>
                                     <ul class="sub_menu_con">
                                         <div class="title notosans">
                                             <span></span>
-                                            <span>회원 관리</span>
+                                            <span>프로그램 관리</span>
                                         </div>
-                                        <li <c:if test="${fn:indexOf(fullURL, '/member/list') > -1}">class="nav_active"</c:if>>
-                                            <a href="${pageContext.request.contextPath}/admin/file/list.do">파일 리스트</a>
+                                        <li <c:if test="${fn:indexOf(fullURL, '/program/list') > -1}">class="nav_active"</c:if>>
+                                            <a href="${pageContext.request.contextPath}/admin/program/list.do">프로그램 리스트</a>
                                         </li>
-                                        <li <c:if test="${fn:indexOf(fullURL, 'member/insert') > -1}">class="nav_active"</c:if>>
-                                            <a href="${pageContext.request.contextPath}/admin/file/insert.do">파일 생성</a>
+                                        <li <c:if test="${fn:indexOf(fullURL, '/program/insert') > -1}">class="nav_active"</c:if>>
+                                            <a href="${pageContext.request.contextPath}/admin/program/insert.do">게시판 생성</a>
                                         </li>
                                     </ul>
                                 </li>

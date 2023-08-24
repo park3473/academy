@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="egovframework.academy.admin.program.service.impl.AdminProgramMapper">
+	
+	<select id="getListData" parameterType="AdminProgramVo" resultType="hashMap">
+		SELECT DISTINCT PRO.* FROM TBL_PROGRAM PRO JOIN TBL_PROGRAM_TAGS PRO_TAG ON PRO.idx = PRO_TAG.pro_idx
+		JOIN TBL_TAGS TAG ON PRO_TAG.tag_idx = TAG.idx
+		WHERE 1=1
+		<if test="tags != 'All'">
+			AND TAG.name IN
+	    	<foreach item="tag" collection="tagList" open="(" separator="," close=")">
+	    		#{tag}
+	    	</foreach>
+	    </if>
+	    <if test="UP != ''">
+	    	order by ${UP} asc
+	    </if>
+	    <if test="DOWN != ''">
+	    	order by ${DOWN} desc
+	    </if>
+	    <if test="DOWN == '' and UP == ''">
+	    	order by CREATE_TM desc
+	    </if>
+	    LIMIT ${LIMIT} OFFSET ${OFFSET}
+	</select>
+	
+	<select id="getListDataCnt" parameterType="AdminProgramVo" resultType="int">
+		SELECT COUNT(DISTINCT PRO.idx) FROM TBL_PROGRAM PRO JOIN TBL_PROGRAM_TAGS PRO_TAG ON PRO.idx = PRO_TAG.pro_idx
+		JOIN TBL_TAGS TAG ON PRO_TAG.tag_idx = TAG.idx
+		WHERE 1=1
+		<if test="tags != 'All'">
+			AND TAG.name IN
+	    	<foreach item="tag" collection="tagList" open="(" separator="," close=")">
+	    		#{tag}
+	    	</foreach>
+	    </if>
+	</select>
+	
+	<insert id="setProgramDataInsert" parameterType="AdminProgramVo" useGeneratedKeys="true" keyProperty="idx">
+		INSERT INTO TBL_PROGRAM( TITLE , IMAGE , OPERATE , START_TM , END_TM , EXPLAN , CONTENT , CREATE_TM , UPDATE_TM )
+		VALUES(#{title} , #{image} , #{operate} , #{start_tm} , #{end_tm} , #{explan} , #{content} , now() , now() )
+	</insert>
+	
+	<delete id="setProgramDataDelete" parameterType="AdminProgramVo">
+		DELETE FROM TBL_PROGRAM WHERE IDX = #{idx}
+	</delete>
+	
+	<update id="setProgramDataUpdate" parameterType="AdminProgramVo">
+		UPDATE TBL_PROGRAM SET 
+		TITLE = #{title} ,
+		<if test="image != ''">
+			IMAGE = #{image},
+		</if>
+		OPERATE = #{operate},
+		START_TM = #{start_tm},
+		END_TM = #{end_tm},
+		EXPLAN = #{explan},
+		CONTENT = #{content},
+		UPDATE_TM = now()
+		WHERE IDX = #{idx}
+	</update>
+	
+	<!-- Tags -->
+	<select id="getAllTags" parameterType="String" resultType="hashMap">
+		SELECT SUBSTRING_INDEX(name, ':', -1)
+    	FROM TBL_TAGS
+    	WHERE name LIKE #{value}
+	</select>
+
+</mapper>
