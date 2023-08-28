@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="egovframework.academy.user.program.service.impl.UserProgramMapper">
+	
+	<select id="getListData" parameterType="UserProgramVo" resultType="hashMap">
+		SELECT DISTINCT PRO.* FROM TBL_PROGRAM PRO JOIN TBL_PROGRAM_TAGS PRO_TAG ON PRO.idx = PRO_TAG.pro_idx
+		JOIN TBL_TAGS TAG ON PRO_TAG.tag_idx = TAG.idx
+		WHERE 1=1
+		<if test="tags != 'All'">
+			AND TAG.name IN
+	    	<foreach item="tag" collection="tagList" open="(" separator="," close=")">
+	    		#{tag}
+	    	</foreach>
+	    </if>
+	    <if test="UP != ''">
+	    	order by ${UP} asc
+	    </if>
+	    <if test="DOWN != ''">
+	    	order by ${DOWN} desc
+	    </if>
+	    <if test="DOWN == '' and UP == ''">
+	    	order by CREATE_TM desc
+	    </if>
+	    LIMIT ${LIMIT} OFFSET ${OFFSET}
+	</select>
+	
+	<select id="getListDataCnt" parameterType="UserProgramVo" resultType="int">
+		SELECT COUNT(DISTINCT PRO.idx) FROM TBL_PROGRAM PRO JOIN TBL_PROGRAM_TAGS PRO_TAG ON PRO.idx = PRO_TAG.pro_idx
+		JOIN TBL_TAGS TAG ON PRO_TAG.tag_idx = TAG.idx
+		WHERE 1=1
+		<if test="tags != 'All'">
+			AND TAG.name IN
+	    	<foreach item="tag" collection="tagList" open="(" separator="," close=")">
+	    		#{tag}
+	    	</foreach>
+	    </if>
+	</select>
+	
+	
+	<!-- Tags -->
+	<select id="getAllTags" parameterType="String" resultType="hashMap">
+		SELECT idx , SUBSTRING_INDEX(name, ':', -1) AS name
+    	FROM TBL_TAGS
+    	WHERE name LIKE #{value}
+	</select>
+
+</mapper>

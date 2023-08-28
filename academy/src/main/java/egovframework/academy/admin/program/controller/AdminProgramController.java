@@ -9,7 +9,11 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.system.util.SUtil;
 
 import egovframework.academy.admin.program.model.AdminProgramVo;
 import egovframework.academy.admin.program.service.AdminProgramService;
@@ -67,10 +71,24 @@ public class AdminProgramController {
 		
 	}
 	
-	@RequestMapping(value="/admin/program/insert.do" , method = RequestMethod.POST)
-	public String AdminProgramDataInsert(@ModelAttribute("AdminProgramVo")AdminProgramVo AdminProgramVo , HttpServletRequest request , HttpServletResponse response) {
+	@RequestMapping(value="/admin/program/insert.do" , method = RequestMethod.POST , produces = "application/json; charset=utf8")
+	@ResponseBody
+	public String AdminProgramDataInsert(@ModelAttribute("AdminProgramVo")AdminProgramVo AdminProgramVo , MultipartHttpServletRequest request , HttpServletResponse response) {
+		
+		if(AdminProgramVo.getImage_change_bool().equals("true")) {
+			
+			String drv = request.getRealPath("");
+			drv = drv.substring(0 , drv.length()) + "./resources/" + ((HttpServletRequest) request).getContextPath() + "/upload/program/image/";
+			
+			String filename = SUtil.setFileUpload(request, drv);
+			
+			AdminProgramVo.setImage(filename);
+			
+		}
 		
 		String result = adminProgramService.setProgramData(AdminProgramVo , "insert");
+		
+		System.out.println("result : " + result);
 		
 		return result;
 		

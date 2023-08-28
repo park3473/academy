@@ -17,6 +17,11 @@
 	text-align: center;
 	
 	}
+	
+	#select_table tr td{
+		border:1px solid black;
+	}
+	
 </style>
 
 <body>
@@ -37,6 +42,63 @@
                                 <span></span>
                                 <span>게시판 관리</span>
                             </div>
+                            
+                            <div class="member_seach_form">
+                                <div class="member_01_wrap">
+                                     <form>
+                                            <div class="form_01">
+                                                <div class="page">
+                                                	<table id="select_table">
+                                                		<tbody>
+                                                		<tr>
+                                                			<td>
+	                                                		<span>분야</span>
+	                                                		</td>
+	                                                		<td>
+				                                        	<c:forEach items="${model.filedTags }" var="item" varStatus="status">
+				                                        	${item.name }<input type="checkbox" name="tag" value="%23분야:${item.name }">
+				                                        	</c:forEach>
+				                                        	</td>
+                                                		</tr>
+                                                		<tr>
+                                                			<td>
+                                                			<span class="list_t">영역</span>
+                                                			</td>
+                                                			<td>
+				                                        	<c:forEach items="${model.AreaTags }" var="item" varStatus="status">
+				                                        	${item.name }<input type="checkbox" name="tag" value="%23영역:${item.name }">
+				                                        	</c:forEach>
+				                                        	</td>
+                                                		</tr>
+                                                		<tr>
+                                                			<td>
+	                                                		<span class="list_t">난이도</span>
+	                                                		</td>
+	                                                		<td>
+				                                        	<c:forEach items="${model.DiffTags }" var="item" varStatus="status">
+				                                        	${item.name }<input type="checkbox" name="tag" value="%23난이도:${item.name }">
+				                                        	</c:forEach>
+				                                        	</td>
+                                                		</tr>
+                                                		<tr>
+                                                			<td>
+	                                                		<span class="list_t">과정</span>
+	                                                		</td>
+	                                                		<td>
+				                                        	<c:forEach items="${model.ProcessTags }" var="item" varStatus="status">
+				                                        	${item.name }<input type="checkbox" name="tag" value="%23과정:${item.name }">
+				                                        	</c:forEach>
+				                                        	</td>
+                                                		</tr>
+                                                		</tbody>
+                                                	</table>
+                                                </div>
+                                         </div>
+                                         <button type="button" onclick="search()">검색</button>
+                                     </form>
+                                 </div>
+                            </div>
+                            
                             <div class="table_wrap">
                                 <table id="bootstrap-data-table">
                                     <tr>
@@ -70,10 +132,6 @@
 
                             <!--관리자 버튼-->
                             <div class="page_seach">
-                                <div>
-                                    <input style="width: 191px;" type="text" value="${model.SEARCH_TEXT }" name="SEARCH_TEXT" id="SEARCH_TEXT" >
-                                    <button type="button" value="검색" onClick="searchBtnClick()">검색</button>
-                                </div>
                                 <div class="adm_btn_wrap stats_btn_area">
                                     <ul>
                                     <li class="delete">
@@ -118,6 +176,18 @@ $(document).ready(function () {
 	    backgroundColor: "#fff"
 	});
 });
+
+function search(){
+	
+	let tagsStr = [];
+	$('input[name="tag"]:checked').each(function(i, field) {
+        tagsStr.push(field.value);
+    });
+    tagsStr = tagsStr.join("");
+	
+	location.href='/admin/program/list.do?tags='+tagsStr;
+	
+}
 
 </script>
 

@@ -133,7 +133,7 @@
                                             <a href="${pageContext.request.contextPath}/admin/program/list.do">프로그램 리스트</a>
                                         </li>
                                         <li <c:if test="${fn:indexOf(fullURL, '/program/insert') > -1}">class="nav_active"</c:if>>
-                                            <a href="${pageContext.request.contextPath}/admin/program/insert.do">게시판 생성</a>
+                                            <a href="${pageContext.request.contextPath}/admin/program/insert.do">프로그램 생성</a>
                                         </li>
                                     </ul>
                                 </li>

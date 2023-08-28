@@ -1,0 +1,40 @@
+.kaist .item_03 { flex-basis: 680px !important;}
+
+/* 탭소스 */
+.tabs {max-width: 1180px;margin: 0 auto;}
+#tab-button {display: table;table-layout: fixed; margin: 0;padding: 0;list-style: none;}
+#tab-button li {display: table-cell; width: 20%;}
+#tab-button li a {display: block;padding: 1em; text-align: center;color: #000;text-decoration: none;}
+#tab-button li:not(:first-child) a {border-left: none;}
+#tab-button li a:hover,#tab-button .is-active a {border-bottom-color: transparent;  border-bottom: 2px solid #38a8a6; color:#38a8a6;}
+.tab-contents {background:none !important;}
+.tab-button-outer {display: none;}
+#tab-select {padding:10px;}
+/* select {border: none !important;} */
+select.active {border: none !important;}
+@media screen and (min-width: 640px) {
+.tab-button-outer {position: relative;z-index: 2;display: block;}
+.tab-select-outer {display: none;}
+.tab-contents {position: relative;top: -1px;margin-top: 0;}
+}
+
+@media only screen and (max-width: 1024px) {
+.sub_group .tit_01 {font-size: 1rem !important;line-height: 2rem;padding: 10px 0 !important;}
+.line_gab_30-1 {margin-top: 10px !important;margin-bottom: 20px !important;}
+}
+
+.btn {padding: 0.9rem !important;}
+.btn:hover {color: #ce7784 !important;}
+
+.sub_group_tab {display:flex; justify-content:center; align-items:center; padding:50px 30px; background-size: 100%; transition:all 3s ease-out;}
+/* .sub_group_tab:hover {background-size: 120%; transition:all 3s ease-out;} */
+
+.sub_group_tab_01 {background:url('/resources/img/sub01c-01.jpg') no-repeat;}
+.sub_group_tab_02 {background:url('/resources/img/sub01c-02.jpg') no-repeat;}
+.sub_group_tab_03 {background:url('/resources/img/sub01c-03.jpg') no-repeat;}
+.sub_group_tab_04 {background:url('/resources/img/sub01c-04.jpg') no-repeat;}
+.sub_group_tab_05 {background:url('/resources/img/sub01c-05.jpg') no-repeat;}
+.sub_group .tit_01 {text-align:center; padding:30px 0; border-top:0.5px solid white; border-bottom:0.5px solid white;}
+
+
+.visual_menu {box-shadow:none !important; border: 1px solid #e6e6e6;}

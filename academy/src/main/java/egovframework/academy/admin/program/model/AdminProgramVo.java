@@ -18,6 +18,9 @@ public class AdminProgramVo extends SearchVo{
 	String content = "";
 	String create_tm = "";
 	String update_tm = "";
+	
+	String image_change_bool = "";
+	
 	String tagType = "";		//태그 여부
 	String tags = "";
 	
@@ -106,6 +109,14 @@ public class AdminProgramVo extends SearchVo{
 	}
 	public void setTags(String tags) {
 		this.tags = tags;
+	}
+
+	public String getImage_change_bool() {
+		return image_change_bool;
+	}
+
+	public void setImage_change_bool(String image_change_bool) {
+		this.image_change_bool = image_change_bool;
 	}
 	
 	

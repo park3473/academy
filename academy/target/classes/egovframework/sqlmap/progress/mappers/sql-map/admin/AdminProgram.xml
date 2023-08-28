@@ -64,7 +64,7 @@
 	
 	<!-- Tags -->
 	<select id="getAllTags" parameterType="String" resultType="hashMap">
-		SELECT SUBSTRING_INDEX(name, ':', -1)
+		SELECT idx , SUBSTRING_INDEX(name, ':', -1) AS name
     	FROM TBL_TAGS
     	WHERE name LIKE #{value}
 	</select>

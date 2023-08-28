@@ -16,9 +16,7 @@
 <!--공통 헤더 끝-->
 
 <!-- content -->
-<div class="ck-content">
 ${model.view.content }
-</div>
 <!-- content end -->
 
 
