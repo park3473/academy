@@ -40,7 +40,7 @@
                         <div class="sc_con">
                             <div class="title">
                                 <span></span>
-                                <span>게시판 관리</span>
+                                <span>프로그램 관리</span>
                             </div>
                             
                             <div class="member_seach_form">

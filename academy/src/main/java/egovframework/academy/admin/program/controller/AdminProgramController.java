@@ -101,4 +101,15 @@ public class AdminProgramController {
 		
 	}
 	
+	@RequestMapping(value="/admin/program/view.do" , method = RequestMethod.GET)
+	public ModelAndView AdminProgramViewData(@ModelAttribute("AdminProgramVo")AdminProgramVo AdminProgramVo , HttpServletRequest request , HttpServletResponse response) {
+		
+		ModelMap model = new ModelMap();
+		
+		model = adminProgramService.getViewData(AdminProgramVo);
+		
+		return new ModelAndView("admin/program/view" , "model" , model);
+		
+	}
+	
 }

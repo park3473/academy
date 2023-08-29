@@ -135,10 +135,10 @@
 <!-- 메인탭 pc-->
 <div class="container main_tab font_noto c_hide">
     <div class="row align-items-center m-0 main_tab_cont f_wet_07">
-        <a href="#" class="col-3 l_border_10"><i class="las la-graduation-cap r_pad_20 txt_40"></i>기관소개</a>
-        <a href="#" class="col-3"><i class="las la-user-graduate r_pad_20 txt_40"></i>교육소개</a>
-        <a href="#" class="col-3"><i class="las la-school r_pad_20 txt_40"></i>교육과정</a>
-        <a href="#" class="col-3 r_border_10"><i class="las la-chalkboard-teacher r_pad_20 txt_40"></i>온라인프로그램</a>
+        <a href="/view/subpage/view.do?idx=1" class="col-3 l_border_10"><i class="las la-graduation-cap r_pad_20 txt_40"></i>기관소개</a>
+        <a href="/view/subpage/view.do?idx=5" class="col-3"><i class="las la-user-graduate r_pad_20 txt_40"></i>교육소개</a>
+        <a href="/view/subpage/view.do?idx=5" class="col-3"><i class="las la-school r_pad_20 txt_40"></i>교육과정</a>
+        <a href="/view/subpage/view.do?idx=8" class="col-3 r_border_10"><i class="las la-chalkboard-teacher r_pad_20 txt_40"></i>온라인프로그램</a>
     </div>
 </div>
 <!-- 메인탭 pc 끝-->

@@ -73,6 +73,24 @@ public class UserProgramServiceImpl implements UserProgramService {
 		return model;
 		
 	}
+
+	@Override
+	public ModelMap getViewData(UserProgramVo userProgramVo) {
+		
+		ModelMap model = new ModelMap();
+		
+		UserProgramVo vo = new UserProgramVo();
+		
+		vo = userProgramMapper.getViewData(userProgramVo);
+		
+		model.put("view", vo);
+		
+		List<?> tagList = userProgramMapper.getViewTags(userProgramVo);
+		
+		model.put("taglist", tagList);
+		
+		return model;
+	}
 	
 	
 	

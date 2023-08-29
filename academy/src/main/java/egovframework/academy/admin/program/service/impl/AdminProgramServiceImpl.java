@@ -133,5 +133,42 @@ public class AdminProgramServiceImpl implements AdminProgramService {
 		
 	}
 
+	@Override
+	public ModelMap getViewData(AdminProgramVo adminProgramVo) {
+		
+		ModelMap model = new ModelMap();
+		
+		AdminProgramVo vo = new AdminProgramVo();
+		
+		vo = adminProgramMapper.getViewData(adminProgramVo);
+		
+		model.put("view", vo);
+		
+		List<?> taglist = adminProgramMapper.getViewTags(adminProgramVo);
+		
+		model.put("taglist", taglist);
+		
+		String value = "";
+		
+		value = "분야:%";
+		List<?> filedTags = adminProgramMapper.getAllTags(value);
+		
+		value = "영역:%";
+		List<?> AreaTags = adminProgramMapper.getAllTags(value);
+		
+		value = "난이도:%";
+		List<?> DiffTags = adminProgramMapper.getAllTags(value);
+		
+		value = "과정:%";
+		List<?> ProcessTags = adminProgramMapper.getAllTags(value);
+		
+		model.put("filedTags", filedTags);
+		model.put("AreaTags", AreaTags);
+		model.put("DiffTags", DiffTags);
+		model.put("ProcessTags", ProcessTags);
+		
+		return model;
+	}
+
 	
 }

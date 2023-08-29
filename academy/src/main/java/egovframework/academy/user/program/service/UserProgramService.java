@@ -8,4 +8,6 @@ public interface UserProgramService {
 
 	ModelMap getListData(UserProgramVo userProgramVo);
 
+	ModelMap getViewData(UserProgramVo userProgramVo);
+
 }

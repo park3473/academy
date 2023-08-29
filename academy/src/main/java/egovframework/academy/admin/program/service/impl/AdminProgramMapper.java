@@ -20,4 +20,8 @@ public interface AdminProgramMapper {
 
 	void setProgramDataUpdate(AdminProgramVo adminProgramVo);
 
+	AdminProgramVo getViewData(AdminProgramVo adminProgramVo);
+
+	List<?> getViewTags(AdminProgramVo adminProgramVo);
+
 }

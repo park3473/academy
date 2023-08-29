@@ -56,4 +56,15 @@ public class UserProgramController {
 		
 	}
 	
+	@RequestMapping(value="/view/program/view.do" , method = RequestMethod.GET)
+	public ModelAndView UserProgramViewGet(@ModelAttribute("UserProgramVo")UserProgramVo UserProgramVo , HttpServletRequest request , HttpServletResponse response ) {
+		
+		ModelMap model = new ModelMap();
+		
+		model = userProgramService.getViewData(UserProgramVo);
+		
+		return new ModelAndView("view/program/view" , "model" , model);
+		
+	}
+	
 }

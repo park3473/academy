@@ -12,4 +12,6 @@ public interface AdminProgramService {
 
 	String setProgramData(AdminProgramVo adminProgramVo, String string);
 
+	ModelMap getViewData(AdminProgramVo adminProgramVo);
+
 }

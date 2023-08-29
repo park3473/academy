@@ -38,12 +38,22 @@
 	    </if>
 	</select>
 	
+	<select id="getViewData" parameterType="UserProgramVo" resultType="UserProgramVo">
+		SELECT * FROM TBL_PROGRAM
+		WHERE IDX = #{idx}
+	</select>
+	
 	
 	<!-- Tags -->
 	<select id="getAllTags" parameterType="String" resultType="hashMap">
 		SELECT idx , SUBSTRING_INDEX(name, ':', -1) AS name
     	FROM TBL_TAGS
     	WHERE name LIKE #{value}
+	</select>
+	
+	<select id="getViewTags" parameterType="UserProgramVo" resultType="hashMap">
+		SELECT PRO_TAG.idx , PRO_TAG.pro_idx , PRO_TAG.tag_idx , TAG.name FROM TBL_PROGRAM_TAGS PRO_TAG JOIN TBL_TAGS TAG ON PRO_TAG.tag_idx = TAG.idx WHERE PRO_TAG.pro_idx = #{idx} ORDER BY TAG.name
+	
 	</select>
 
 </mapper>
