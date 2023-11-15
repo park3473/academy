@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.system.util.SUtil;
 
 import egovframework.academy.admin.program.model.AdminProgramVo;
+import egovframework.academy.admin.program.model.AdminTagsVo;
 import egovframework.academy.admin.program.service.AdminProgramService;
 
 @Controller
@@ -35,6 +36,8 @@ public class AdminProgramController {
 			
 			AdminProgramVo.setTags("All");
 			
+		}else {
+			
 		}
 		
 		String PAGE = request.getParameter("PAGE") != null ? request
@@ -52,6 +55,7 @@ public class AdminProgramController {
 		
 		ModelMap model = new ModelMap();
 		
+		
 		model = adminProgramService.getListData(AdminProgramVo);
 		
 		model.put("beforeData", AdminProgramVo);
@@ -61,11 +65,11 @@ public class AdminProgramController {
 	}
 	
 	@RequestMapping(value="/admin/program/insert.do" , method = RequestMethod.GET)
-	public ModelAndView AdminProgramInsert(@ModelAttribute("AdminProgramVo")AdminProgramVo AdminProgramVo , HttpServletRequest request , HttpServletResponse response) {
+	public ModelAndView AdminProgramInsert(@ModelAttribute("AdminProgramVo")AdminProgramVo AdminProgramVo , @ModelAttribute("AdminTagsVo")AdminTagsVo AdminTagsVo , HttpServletRequest request , HttpServletResponse response) {
 		
 		ModelMap model = new ModelMap();
 		
-		model = adminProgramService.getAllTags();
+		model = adminProgramService.getAllTags(AdminTagsVo);
 		
 		return new ModelAndView("admin/program/insert" , "model" , model);
 		
@@ -79,6 +83,8 @@ public class AdminProgramController {
 			
 			String drv = request.getRealPath("");
 			drv = drv.substring(0 , drv.length()) + "./resources/" + ((HttpServletRequest) request).getContextPath() + "/upload/program/image/";
+			
+			System.out.println("drv : " + drv);
 			
 			String filename = SUtil.setFileUpload(request, drv);
 			
@@ -109,6 +115,45 @@ public class AdminProgramController {
 		model = adminProgramService.getViewData(AdminProgramVo);
 		
 		return new ModelAndView("admin/program/view" , "model" , model);
+		
+	}
+	
+	/*태그 부분들*/
+	@RequestMapping(value="/admin/tags/list.do" , method = RequestMethod.GET)
+	public ModelAndView AdminTagsListGet(@ModelAttribute("AdminTagsVo")AdminTagsVo AdminTagsVo , HttpServletRequest request , HttpServletResponse response) {
+		
+		ModelMap model = new ModelMap();
+		
+		model = adminProgramService.getAllTags(AdminTagsVo);
+		
+		return new ModelAndView("admin/tags/list" , "model" , model);
+		
+	}
+	
+	@RequestMapping(value="/admin/tags/insert.do" , method = RequestMethod.POST)
+	public String AdminTagsDataInsert(@ModelAttribute("AdminTagsVo")AdminTagsVo AdminTagsVo , HttpServletRequest request , HttpServletResponse response) {
+		
+		adminProgramService.setTagsData(AdminTagsVo , "insert");
+		
+		return "redirect:/admin/tags/list.do";
+		
+	}
+	
+	@RequestMapping(value="/admin/tags/update.do" , method = RequestMethod.POST)
+	public String AdminTagsDataUpdate(@ModelAttribute("AdminTagsVo")AdminTagsVo AdminTagsVo , HttpServletRequest request , HttpServletResponse response) {
+		
+		adminProgramService.setTagsData(AdminTagsVo , "update");
+		
+		return "redirect:/admin/tags/list.do";
+		
+	}
+	
+	@RequestMapping(value="/admin/tags/delete.do" , method = RequestMethod.POST)
+	public String AdminTagsDataDelete(@ModelAttribute("AdminTagsVo")AdminTagsVo AdminTagsVo , HttpServletRequest request , HttpServletResponse response) {
+		
+		adminProgramService.setTagsData(AdminTagsVo , "delete");
+		
+		return "redirect:/admin/tags/list.do";
 		
 	}
 	

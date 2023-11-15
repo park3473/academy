@@ -39,6 +39,7 @@ public class UserLoginInterceptor extends HandlerInterceptorAdapter {
 		HttpSession session = request.getSession();
 		String level = session.getAttribute("UserLevel") + "";
 		int levelInt = Integer.parseInt(level);
+		/*
 		if(level.equals("1") || levelInt >= 1)
 		{
 			return true;
@@ -46,7 +47,8 @@ public class UserLoginInterceptor extends HandlerInterceptorAdapter {
 		{
 			response.sendRedirect(request.getContextPath()+"/index.do");
 			return false;
-		}
+		}*/
+		return true;
 		
 	}
 

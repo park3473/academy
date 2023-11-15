@@ -68,15 +68,25 @@
 	</select>
 	
 	<!-- Tags -->
-	<select id="getAllTags" parameterType="String" resultType="hashMap">
-		SELECT idx , SUBSTRING_INDEX(name, ':', -1) AS name
-    	FROM TBL_TAGS
-    	WHERE name LIKE #{value}
+	<select id="getAllTags" resultType="hashMap">
+		SELECT * FROM TBL_TAGS
 	</select>
 	
 	<select id="getViewTags" parameterType="AdminProgramVo" resultType="hashMap">
 		SELECT PRO_TAG.idx , PRO_TAG.pro_idx , PRO_TAG.tag_idx , TAG.name FROM TBL_PROGRAM_TAGS PRO_TAG JOIN TBL_TAGS TAG ON PRO_TAG.tag_idx = TAG.idx WHERE PRO_TAG.pro_idx = #{idx} ORDER BY TAG.name
-	
 	</select>
+	
+	<insert id="setTagsDataInsert" parameterType="AdminTagsVo">
+		INSERT INTO TBL_TAGS (`GROUP` , NAME) VALUES (#{group} , #{name})
+	</insert>
+	
+	<update id="setTagsDataUpdate" parameterType="AdminTagsVo">
+		UPDATE TBL_TAGS SET `GROUP` = #{group} , NAME = #{name} WHERE IDX = #{idx}
+	</update>
+	
+	<delete id="setTagsDataDelete" parameterType="AdminTagsVo">
+		DELETE FROM TBL_TAGS WHERE IDX = #{idx}
+	</delete>
+	
 
 </mapper>

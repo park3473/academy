@@ -10,6 +10,8 @@ public class AdminBoardDataVo extends SearchVo{
 	String type = "";			//게시판 타입
 	String title = "";			//게시판 제목
 	String content = "";		//게시판 내용
+	String email = "";			//작성자 이메일
+	String phone = "";			//작성자 번호
 	String member_id = "";		//작성자 아이디
 	String name = "";			//작성자 이름
 	String image = "";			//게시글 이미지 (썸네일용);

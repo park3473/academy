@@ -15,8 +15,8 @@ input[type=text],input[type=password], textarea {
 box-shadow:none !important;
 outline:none !important;
 border:1px #dedede solid !important;
-border-radius:5px;
-height:50px;
+border-radius:0px;
+height:40px;
 padding:15px;
 color:#ccc;
 }
@@ -27,6 +27,9 @@ box-shadow:none !important;
 outline:none !important;
 border:1px #dedede solid !important;
 }
+
+.max_img img{max-width:100%}
+.wid_img img{width:100%}
 
 /* 전체크기 */
 .container{max-width:1400px}
@@ -345,4 +348,40 @@ br{display:none}
 .table tbody td:nth-child(2){max-width:270px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:inline-block}
 /* .table tbody td:nth-child(3),.table tbody td:nth-child(4){display:none} */
 }
+
+/* 테이블전체 */
+.tb_list {border-bottom:1px solid #dee2e6}
+.tb_list .table {margin-bottom:0}
+.tb_list .table thead th {vertical-align:bottom;border-bottom:1px solid #dee2e6;border-top:2px solid #014293}
+.tb_list .table td{display:table-cell;vertical-align:middle}
+.tb_list .th_col{background:rgba(0,0,0,.05)}
+.tb_list .width_01{width:12%}
+.tb_list .width_02{width:20%}
+
+.tb_list .table .no {width:80px}
+.tb_list .table .subject {text-align:left}
+.tb_list .table .write {width:150px}
+.tb_list .table .date {width:150px}
+.tb_page .pagination{justify-content: center;padding:30px 0}
+.tb_page .page-link {color:#555}
+.tb_page .page-item.active .page-link {background-color:#014293;border-color:#014293}
+
+.tb_view {border-top:2px solid #014293}
+.tb_view .title{font-size:20px;padding:30px 0 0 0}
+.tb_view .top_info{border-bottom:1px #dedede solid;padding-bottom:15px}
+.tb_view span{margin-right:20px}
+.tb_view .name{color:#229dc1}
+.tb_view .date{margin-right:0;float:right}
+.tb_view .contents{padding:30px 0;border-bottom:1px #dedede solid;}
+.tb_view_img {padding-bottom:30px}
+
+/* 게시판버튼 */
+.tb_button {padding:30px 0;text-align:right}
+.tb_button .btn {padding:5px 15px;border-radius:2px}
+.tb_button .btn_01 {background-color:#f4f4f4;border:1px #dedede solid}
+.tb_button .btn_01:hover {background-color:#dedede;border:1px #ccc solid}
+.tb_button .btn_02 {color:#fff;background-color:#014293;border:1px #0e3668 solid}
+.tb_button .btn_02:hover {background-color:#2b61a4;border:1px #265895 solid}
+.tb_button .btn_03 {color:#fff;background-color:#229dc1;border:1px #1c8eaf solid}
+.tb_button .btn_03:hover {background-color:#1c8eaf;border:1px #1d83a0 solid}
 

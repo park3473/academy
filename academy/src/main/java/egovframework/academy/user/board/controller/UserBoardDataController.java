@@ -81,6 +81,13 @@ public class UserBoardDataController {
 		ModelMap model = new ModelMap();
 		model = userBoardDataService.getAllList(UserBoardDataVo);
 		
+		//게시판 설정 내용
+		UserBoardVo BoardConfig = new UserBoardVo();
+		
+		BoardConfig = userBoardService.getBoardConfig(UserBoardDataVo.getBoard_idx());
+		
+		model.put("BoardConfig", BoardConfig);
+		
 		model.put("beforeDomain", UserBoardDataVo);
 		
 		return new ModelAndView("/user/board_data/list" , "model" , model);
@@ -152,7 +159,6 @@ public class UserBoardDataController {
 		
 		//board_data 가져오기
 		model = userBoardDataService.getBoardData(UserBoardDataVo);
-		
 		
 		//board_config 가져오기
 		UserBoardVo BoardConfig = new UserBoardVo();

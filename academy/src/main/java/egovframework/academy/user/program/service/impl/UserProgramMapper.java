@@ -20,4 +20,6 @@ public interface UserProgramMapper {
 
 	List<?> getViewTags(UserProgramVo userProgramVo);
 
+	List<?> getAllTags();
+
 }

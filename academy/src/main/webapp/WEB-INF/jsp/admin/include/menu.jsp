@@ -118,7 +118,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li <c:if test="${fn:indexOf(fullURL , '/program/') > -1} ">
+                                <li <c:if test="${fn:indexOf(fullURL , '/program/') > -1 || fn:indexOf(fullURL , '/tags/') > -1} ">
                                     class="adm_menu_active"
                                     </c:if>>
                                     <a href="${pageContext.request.contextPath}/admin/program/list.do">
@@ -134,6 +134,9 @@
                                         </li>
                                         <li <c:if test="${fn:indexOf(fullURL, '/program/insert') > -1}">class="nav_active"</c:if>>
                                             <a href="${pageContext.request.contextPath}/admin/program/insert.do">프로그램 생성</a>
+                                        </li>
+                                        <li <c:if test="${fn:indexOf(fullURL, '/tags/list.do') > -1}">class="nav_active"</c:if>>
+                                            <a href="${pageContext.request.contextPath}/admin/tags/list.do">태그 관리</a>
                                         </li>
                                     </ul>
                                 </li>

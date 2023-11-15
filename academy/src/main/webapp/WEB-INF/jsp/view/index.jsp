@@ -136,8 +136,8 @@
 <div class="container main_tab font_noto c_hide">
     <div class="row align-items-center m-0 main_tab_cont f_wet_07">
         <a href="/view/subpage/view.do?idx=1" class="col-3 l_border_10"><i class="las la-graduation-cap r_pad_20 txt_40"></i>기관소개</a>
-        <a href="/view/subpage/view.do?idx=5" class="col-3"><i class="las la-user-graduate r_pad_20 txt_40"></i>교육소개</a>
-        <a href="/view/subpage/view.do?idx=5" class="col-3"><i class="las la-school r_pad_20 txt_40"></i>교육과정</a>
+        <a href="/view/subpage/view.do?idx=9" class="col-3"><i class="las la-user-graduate r_pad_20 txt_40"></i>교육소개</a>
+        <a href="/view/program/list.do?tags=비학위연수과정" class="col-3"><i class="las la-school r_pad_20 txt_40"></i>교육과정</a>
         <a href="/view/subpage/view.do?idx=8" class="col-3 r_border_10"><i class="las la-chalkboard-teacher r_pad_20 txt_40"></i>온라인프로그램</a>
     </div>
 </div>
@@ -152,19 +152,19 @@
         </div>
         <div class="col-sm-12 t_pad_20">
             <div class="owl-carousel owl-theme">
-                <a href="#" target="_blank" class="item border_01 kaist-box_01 max_img">
+                <a href="/view/subpage/view.do?idx=1" target="_blank" class="item border_01 kaist-box_01 max_img">
                     <i class="las la-graduation-cap txt_44"></i>
                     <p>기관소개</p>
                 </a>
-                <a href="#" target="_blank" class="item border_01 kaist-box_01 max_img">
+                <a href="/view/subpage/view.do?idx=9" target="_blank" class="item border_01 kaist-box_01 max_img">
                     <i class="las la-user-graduate txt_44"></i>
                     <p>교육소개</p>
                 </a>
-                <a href="#" target="_blank" class="item border_01 kaist-box_01 max_img">
+                <a href="/view/program/list.do?tags=비학위연수과정" target="_blank" class="item border_01 kaist-box_01 max_img">
                     <i class="las la-school txt_44"></i>
                     <p>교육과정</p>
                 </a>
-                <a href="#" target="_blank" class="item border_01 kaist-box_01 max_img">
+                <a href="/view/subpage/view.do?idx=8" target="_blank" class="item border_01 kaist-box_01 max_img">
                     <i class="las la-chalkboard-teacher r_pad_10 txt_44"></i>
                     <p>온라인프로그램</p>
                 </a>
@@ -185,28 +185,20 @@
                 <p class="txt_30 f_wet_07">공지사항</p>
                 notice
             </div>
-            <a href="" class="d-flex gray_00 f_wet_07"><p class="txt_24 btn_more b_pad_10">View More +</p></a>
+            <a href="/user/board_data/list.do?board_idx=1" class="d-flex gray_00 f_wet_07"><p class="txt_24 btn_more b_pad_10">View More +</p></a>
         </div>
 
         <div class="col-md-1"></div>
 
         <div class="col-md-8 mt-3 mt-md-0">
             <div class="row">
-                <a href="#" class="col-12 font_noto txt_just notice_cont">
-                    <p class="txt_20 f_wet_07">KAIST 미래정부리더십센터(센터장 김성희 교수)과학기술정보통신부 장관상 수상</p>
-                    <div class="opa_07">미래과학기술정책과정(FSTP)과정은 인사혁신처로부터 공무원 과장급 장기연수 교육프로그램중 “과학기술 인재양성”을 위해 국내 대학...</div>
-                    <p class="day_01 opa_07">2023.03.08</p>
+                <c:forEach items="${model.NoticeList}" var="item">
+                <a href="/user/board_data/view.do?idx=${item.idx}&board_idx=${item.board_idx }" class="col-12 font_noto txt_just notice_cont">
+                    <p class="txt_20 f_wet_07">${item.title}</p>
+                    <div class="opa_07">${item.name}</div>
+                    <p class="day_01 opa_07">${fn:substring(item.create_tm , 0,11)}</p>
                 </a>
-                <a href="#" class="col-12 font_noto txt_just notice_cont">
-                    <p class="txt_20 f_wet_07">KAIST 미래정부리더십센터(센터장 김성희 교수)과학기술정보통신부 장관상 수상</p>
-                    <div class="opa_07">미래과학기술정책과정(FSTP)과정은 인사혁신처로부터 공무원 과장급 장기연수 교육프로그램중 “과학기술 인재양성”을 위해 국내 대학...</div>
-                    <p class="day_01 opa_07">2023.03.08</p>
-                </a>
-                <a href="#" class="col-12 font_noto txt_just notice_cont">
-                    <p class="txt_20 f_wet_07">KAIST 미래정부리더십센터(센터장 김성희 교수)과학기술정보통신부 장관상 수상</p>
-                    <div class="opa_07">미래과학기술정책과정(FSTP)과정은 인사혁신처로부터 공무원 과장급 장기연수 교육프로그램중 “과학기술 인재양성”을 위해 국내 대학...</div>
-                    <p class="day_01 opa_07">2023.03.08</p>
-                </a>
+                </c:forEach>
             </div>
         </div>
     </div>
@@ -222,49 +214,26 @@
                 <p class="txt_30 f_wet_07">갤러리</p>
                 gallery
             </div>
-            <a href="" class="d-flex gray_00 f_wet_07"><p class="txt_24 btn_more b_pad_10">View More +</p></a>
+            <a href="/user/board_data/list.do?board_idx=2" class="d-flex gray_00 f_wet_07"><p class="txt_24 btn_more b_pad_10">View More +</p></a>
         </div>
 
         <div class="col-md-1"></div>
 
         <div class="col-md-8 mt-3 mt-md-0">
             <div class="row d-flex justify-content-between">
+                <c:forEach items="${model.InfoList}" var="item">
                 <div class="col-12 col-sm p-0 r_mar_30">
-                    <a href="#" class="card" style="width: 100%;">
-                        <img src="${pageContext.request.contextPath}/resources/img/gallery-01.jpg" class="card-img-top c_hide" alt="...">
+                    <a href="/user/board_data/view.do?idx=${item.idx}&board_idx=${item.board_idx }" class="card" style="width: 100%;">
+                        <img src="/resources/upload/file/${item.image}" class="card-img-top c_hide" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title txt_20 f_wet_07">미래과학기술정책과정 입...</h5>
-                            <p class="card-text opa_07">KAIST 미래과학기술정책과정 입학식을 소개합니다. 지난...</p>
-                            <p class="day_01 opa_07 m-0">2023.03.08</p>
+                            <h5 class="card-title txt_20 f_wet_07">${item.title }</h5>
+                            <p class="card-text opa_07">${item.name }</p>
+                            <p class="day_01 opa_07 m-0">${fn:substring(item.create_tm,0,11) }</p>
                             <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                         </div>
                     </a>
                 </div>
-
-                <div class="col-12 col-sm p-0 r_mar_30">
-                    <a href="#" class="card" style="width: 100%;">
-                        <img src="${pageContext.request.contextPath}/resources/img/gallery-02.jpg" class="card-img-top c_hide" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title txt_20 f_wet_07">미래과학기술정책과정 F...</h5>
-                            <p class="card-text opa_07">KAIST 미래과학기술정책과정 입학식을 소개합니다. 지난...</p>
-                            <p class="day_01 opa_07 m-0">2023.03.03</p>
-                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-12 col-sm p-0">
-                    <a href="#" class="card" style="width: 100%;">
-                        <img src="${pageContext.request.contextPath}/resources/img/gallery-03.jpg" class="card-img-top c_hide" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title txt_20 f_wet_07">미래과학기술정책과정 입...</h5>
-                            <p class="card-text opa_07">KAIST 미래과학기술정책과정 입학식을 소개합니다. 지난...</p>
-                            <p class="day_01 opa_07 m-0">2023.03.03</p>
-                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                        </div>
-                    </a>
-                </div>
-
+                </c:forEach>
             </div>
         </div>
     </div>

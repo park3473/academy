@@ -11,6 +11,8 @@ public class UserBoardDataVo extends SearchVo {
 	String title = "";			//게시판 제목
 	String content = "";		//게시판 내용
 	String member_id = "";		//작성자 아이디
+	String email = "";			//작성자 이메일
+	String phone = "";			//작성자 번호
 	String name = "";			//작성자 이름
 	String image = "";			//게시글 이미지 (썸네일용);
 	String file = "";			//게시글 파일 여부
@@ -96,6 +98,18 @@ public class UserBoardDataVo extends SearchVo {
 	}
 	public void setRdcnt(String rdcnt) {
 		this.rdcnt = rdcnt;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	
 	

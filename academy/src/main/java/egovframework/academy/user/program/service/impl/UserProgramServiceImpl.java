@@ -1,6 +1,9 @@
 package egovframework.academy.user.program.service.impl;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -50,25 +53,24 @@ public class UserProgramServiceImpl implements UserProgramService {
 		
 		model.put("list", list);
 		
-		//태그 불러오기
-		String value = "";
-		
-		value = "분야:%";
-		List<?> filedTags = userProgramMapper.getAllTags(value);
-		
-		value = "영역:%";
-		List<?> AreaTags = userProgramMapper.getAllTags(value);
-		
-		value = "난이도:%";
-		List<?> DiffTags = userProgramMapper.getAllTags(value);
-		
-		value = "과정:%";
-		List<?> ProcessTags = userProgramMapper.getAllTags(value);
-		
-		model.put("filedTags", filedTags);
-		model.put("AreaTags", AreaTags);
-		model.put("DiffTags", DiffTags);
-		model.put("ProcessTags", ProcessTags);
+		//태그
+		List<?> taglist = userProgramMapper.getAllTags();
+	    Map<String, List<String>> groupedTags = new HashMap<>();
+
+	    for (Object rowObj : taglist) {
+	        Map<String, Object> row = (Map<String, Object>) rowObj;
+
+	        String group = (String) row.get("group");
+	        String name = (String) row.get("name");
+
+	        if (!groupedTags.containsKey(group)) {
+	            groupedTags.put(group, new ArrayList<String>());
+	        }
+
+	        groupedTags.get(group).add(name);
+	    }
+
+	    model.addAttribute("groupedTags", groupedTags);
 		
 		return model;
 		

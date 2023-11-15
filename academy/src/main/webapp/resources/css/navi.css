@@ -137,7 +137,7 @@
 #header.scroll.gnb-open{height:380px;border-bottom:1px solid #e5e5e5}
 #nav .gnb-area .gnb-menu{float:right;display:table;table-layout:fixed;margin:0 !important}
 #nav .gnb-area .gnb-menu:after{clear:both; display:block; content:''}
-#nav .gnb-area > .gnb-menu > li{position:relative;display:inline-block;vertical-align:top;text-align:right;margin-left:70px}/*pc 대메뉴간격*/
+#nav .gnb-area > .gnb-menu > li{position:relative;display:inline-block;vertical-align:top;text-align:right; width: 230px;}/*pc 대메뉴간격*/
 #nav .gnb-area > .gnb-menu > li > a{padding:0 !important}
 #nav .gnb-area > .gnb-menu > li.active > a{color:#da291c}
 #nav .gnb-area > .gnb-menu > li:hover > a,

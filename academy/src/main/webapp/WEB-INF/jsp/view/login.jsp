@@ -41,6 +41,32 @@
 .in_sub_sort {display:none}  
 
 }
+
+.login_container {
+      width: 400px;
+      margin: 0 auto;
+      border: 2px solid black;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .logo {
+      margin-bottom: 20px;
+    }
+
+    .input-box {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    .login-button {
+      width: 80%;
+      padding: 10px;
+      background-color: blue;
+      color: white;
+      border: none;
+    }
         
 </style>
 
@@ -74,15 +100,23 @@
 </div>
 <!-- 타이트끝 -->
 
+
 <!-- 콘텐츠 -->
 <div class="container">
-  	<div>
-  		<form action="/view/login.do" method="POST">
-  			<input type="text" name="member_id">
-  			<input type="text" name="password">
-  			<button type="button" onclick="login()">로그인</button>
-  		</form>
-  	</div>
+  <div class="login_container">
+    <div class="logo">
+      <img src="/resources/img/logo.png" alt="Logo Image" width="100">
+    </div>
+    <div>
+      <input type="text" class="input-box" name="member_id" placeholder="Username">
+    </div>
+    <div>
+      <input type="password" class="input-box" name="password" placeholder="Password">
+    </div>
+    <div>
+      <button class="login-button" type="button" onclick="login()" >Login</button>
+    </div>
+  </div>
 
            
 

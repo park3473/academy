@@ -45,27 +45,47 @@
 /* 기존의 테이블 스타일 */
     #select_table {
       border-collapse: collapse;
-      width: 100%;
+      width: 100%;border-top:2px #000 solid;margin-top:30px
     }
     #select_table td {
-      border: 1px solid #ccc;
+      border-bottom: 1px solid rgba(0,0,0,.1);
       padding: 8px;
       text-align: left;
     }
     
     /* 1번, 2번 요구사항 */
     #select_table td:first-child {
-      background-color: #f2f2f2;
+      background-color: #01438f;
       font-weight: bold; /* 굵은 글씨 */
-      color: blue; /* 파란색 글씨 */
+      color:#fff; /* 파란색 글씨 */
       width: 10%;
+	  border-bottom: 1px solid rgba(255,255,255,.2);
     }
 
     /* 3번 요구사항 */
     #select_table td input[type="checkbox"] + label {
       margin-right: 15px; /* 간격 */
-      font-weight: bold;  /* 굵은 글씨 */
+      font-weight: bold_;  /* 굵은 글씨 */
+	  margin-left:5px;
+	  letter-spacing:0;
     }
+
+	 input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 2px;
+    border: 1px solid #dedede;
+    appearance: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top:-3px;
+	vertical-align: middle;
+  }
+  input[type="checkbox"]:checked {
+    background: #000;
+    border: none;
+  }
+
 
     /* Search Box and Buttons */
         #search-box {
@@ -87,23 +107,24 @@
             position: absolute;
             right: 0;
             top: 0;
+			font-size:24px;
+			background:#000;color:#fff;height:40px;width:60px;line-height:40px;font-weight:bold
         }
         
         #search-box .action-buttons button {
         	font-family: inherit;
     		outline: none;
-        	margin-right: 5px;
         	padding: 10px 24px;
     		font-size: 14px;
-            background-color: white;
+            background-color:#000;
             border: 1px solid black;
-            border-radius: 999px;
+            border-radius: 0px;
 			cursor: pointer;
 		    border: 1px solid #222;
 		    vertical-align: middle;
-		    border-radius: 999px;
 		    font-weight: 400;
 		    line-height: 18px;
+			color:#fff
         }
         
 	    /* 게시물 스타일 */
@@ -114,13 +135,13 @@
     .post {
       width: 18%;
       height: 300px;
-      border: 1px solid black;
-      border-radius: 20px;
+      border: 1px solid #dedede;
+      border-radius:0px;
       margin: 1%;
       overflow: hidden;
     }
     .post-image {
-      height: 40%;
+      height: 50%;
       width: 100%;
     }
     .post-content {
@@ -128,15 +149,24 @@
       padding: 10px;
     }
     .post-title {
-      font-weight: bold;
+      font-weight: bold;padding-bottom:10px
     }
     .post-preview {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     }
+	.post-time{color:#999;font-size:14px}
+
+
+
+	@media only screen and (max-width:992px) {
+	.post-container {padding:0 10px}
+	.post {width:48%}
+	#search-box .search-container {width:60%;}
+	.reset-button{display:none}
+	}
+	
         
 </style>
 
@@ -145,10 +175,6 @@
 <div class="container in_sub_sort">
 <div class="row">
 <div class="col">
-<ul class="nav gab_02">
-<li><a class="nav-link" href="#">전문과정</a></li>
-<li><a class="nav-link" href="#">모집과정</a></li>
-</ul>
   
 
 </div>
@@ -165,55 +191,33 @@
 <div class="sub_wrap-1">
 
 <!-- 타이틀 -->
-<div class="sub_tit container gray_10">
+<div class="b_pad_30 container gray_10">
 	 <div id="search-box">
         <!-- Search Container -->
         <div class="search-container">
             <input type="text" placeholder="Search">
-            <button class="search-button" onclick="search()">🔍</button> <!-- You can replace this with an image -->
+            <button class="search-button font_noto" onclick="search()"><i class="las la-search"></i></button> <!-- You can replace this with an image -->
         </div>
         
         <!-- Action Buttons -->
         <div class="action-buttons">
             <button class="reset-button" onclick="tag_check_out()">초기화</button>
-            <button class="detail-button" id="detail-button" onclick="select_table()">상세 검색</button>
+            <button class="detail-button" id="detail-button" onclick="select_table()" style="background:#01438f">상세 검색</button>
         </div>
     </div>
     <div>
 			<table id="select_table">
 				<tbody>
-					<tr>
-						<td><span>분야</span></td>
-						<td>
-							<c:forEach items="${model.filedTags }" var="item" varStatus="status">
-							<input type="checkbox" name="tag" value="%23분야:${item.name }" <c:if test="${fn:contains(model.beforeData.tags , item.name)  }">checked</c:if> ><label>${item.name }</label>
-							</c:forEach>
-						</td>
-					</tr>
-					<tr>
-						<td><span class="list_t">영역</span></td>
-						<td>
-							<c:forEach items="${model.AreaTags }" var="item" varStatus="status">
-							<input type="checkbox" name="tag" value="%23영역:${item.name }" <c:if test="${fn:contains(model.beforeData.tags , item.name)  }">checked</c:if> ><label>${item.name }</label>
-							</c:forEach>
-						</td>
-					</tr>
-					<tr>
-						<td><span class="list_t">난이도</span></td>
-						<td>
-							<c:forEach items="${model.DiffTags }" var="item" varStatus="status">
-							<input type="checkbox" name="tag" value="%23난이도:${item.name }" <c:if test="${fn:contains(model.beforeData.tags , item.name)  }">checked</c:if> ><label>${item.name }</label>
-							</c:forEach>
-						</td>
-					</tr>
-					<tr>
-						<td><span class="list_t">과정</span></td>
-						<td>
-							<c:forEach items="${model.ProcessTags }" var="item" varStatus="status">
-							<input type="checkbox" name="tag" value="%23과정:${item.name }" <c:if test="${fn:contains(model.beforeData.tags , item.name)  }">checked</c:if> ><label>${item.name }</label>
-							</c:forEach>
-						</td>
-					</tr>
+          <c:forEach var="entry" items="${model.groupedTags}">
+            <tr>
+              <td>${entry.key}</td>
+              <td>
+                <c:forEach var="tag" items="${entry.value}">
+                  <input type="checkbox" name="tags" value="${tag}"> ${tag}
+                </c:forEach>
+              </td>
+            </tr>
+          </c:forEach>
 				</tbody>
 			</table>
 		</div>
@@ -221,15 +225,15 @@
 <!-- 타이트끝 -->
 
 <!-- 콘텐츠 -->
-<div class="container">
+<div class="container p-0">
   <div class="post-container">
   	<c:forEach var="item" items="${model.list}" varStatus="status">
-    <div class="post" onclick="location.href='/view/program/view.do?idx=${item.idx}'">
-      <div class="post-image" style="background-image: url('/resources/upload/program/image/${item.image}');"></div>
+    <div class="post pointer" onclick="location.href='/view/program/view.do?idx=${item.idx}'">
+      <div class="post-image" style="background-image: url('/resources/upload/program/image/${item.image}'); background-position: center; background-size: cover;"></div>
       <div class="post-content">
         <div class="post-title">${item.title }</div>
-        <div class="post-preview">${item.content }</div>
-        <div class="post-time">${fn:substring(item.start_tm,0,11) } ~ ${fn:substring(item.end_tm,0,11) }</div>
+        <div class="post-preview">${item.explan }</div>
+        <div class="post-time"><strong>기간 : </strong>${fn:substring(item.start_tm,0,11) } ~ ${fn:substring(item.end_tm,0,11) }</div>
       </div>
     </div>
     </c:forEach>
@@ -252,7 +256,7 @@
 function search(){
 	
 	let tagsStr = [];
-	$('input[name="tag"]:checked').each(function(i, field) {
+	$('input[name="tags"]:checked').each(function(i, field) {
         tagsStr.push(field.value);
     });
     tagsStr = tagsStr.join("");

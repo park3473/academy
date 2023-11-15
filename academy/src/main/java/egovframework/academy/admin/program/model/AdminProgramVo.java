@@ -12,6 +12,9 @@ public class AdminProgramVo extends SearchVo{
 	String title = "";
 	String image = "";
 	String operate = "";
+	String target = "";
+	String place = "";
+	String phone = "";
 	String start_tm = "";
 	String end_tm = "";
 	String explan = "";
@@ -62,6 +65,30 @@ public class AdminProgramVo extends SearchVo{
 	public void setOperate(String operate) {
 		this.operate = operate;
 	}
+	public String getTarget() {
+		return target;
+	}
+
+	public void setTarget(String target) {
+		this.target = target;
+	}
+
+	public String getPlace() {
+		return place;
+	}
+
+	public void setPlace(String place) {
+		this.place = place;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
 	public String getStart_tm() {
 		return start_tm;
 	}

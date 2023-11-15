@@ -47,7 +47,7 @@
                         <input type="hidden"  name="csrf" value="${CSRF_TOKEN}" />
                         <input type="hidden" name="member_id" value="${sessionScope.UserId }"  />
                         <input type="hidden" name="name" value="${sessionScope.UserName }"  />
-                        <input type="hidden" name="image_change_bool" value="false" />
+                        <input type="hidden" name="image_change_bool" id="image_change_bool" value="false" />
                         <div class="sc_con" id="div_con">
                             <div class="title">
                                 <span></span>
@@ -195,6 +195,8 @@ function insertClick()
 		contentType:false,
 		success : function(result , status){
 			console.log('success : ' + result);
+			alert('프로그램이 등록되었습니다.');
+			location.href='/admin/program/list.do';
 		},
 		error : function(xhr , status , error){
 			console.log('error : ' , error);

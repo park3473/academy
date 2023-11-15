@@ -80,6 +80,7 @@
 	<a href="/view/subpage/view.do?idx=1"><span>기관소개</span></a>
 	<ul class="depth2">
 	<li><a href="/view/subpage/view.do?idx=1"><span>원장인사말</span></a></li>
+	<li><a href="/view/subpage/view.do?idx=13"><span>연혁</span></a></li>
 	<li><a href="/view/subpage/view.do?idx=2"><span>조직도 및 구성원</span></a></li>
 	<li><a href="/view/subpage/view.do?idx=3"><span>부서소개</span></a></li>
 	<li><a href="/view/subpage/view.do?idx=4"><span>오시는길</span></a></li>
@@ -87,43 +88,42 @@
 	</li>
 
 	<li>
-	<a href="/view/program/list.do"><span>교육소개</span></a>
+	<a href="/view/subpage/view.do?idx=9"><span>교육소개</span></a>
 	<ul class="depth2">
-	<li><a href="/view/program/list.do"><span>비학위연수과정</span></a></li>
-	<li><a href="/view/program/list.do"><span>마이크로디그리 과정</span></a></li>
-	<li><a href="/view/program/list.do"><span>산학협동공개강좌</span></a></li>
+	<li><a href="/view/subpage/view.do?idx=9"><span>비학위연수과정</span></a></li>
+	<li><a href="/view/subpage/view.do?idx=10"><span>마이크로디그리 과정</span></a></li>
+	<li><a href="/view/subpage/view.do?idx=11"><span>산학협동공개강좌</span></a></li>
 	<li><a href="/view/subpage/view.do?idx=5"><span>Education 4.0Q</span></a></li>
 	<li><a href="/view/subpage/view.do?idx=6"><span>영재교육</span></a></li>
 	<li><a href="/view/subpage/view.do?idx=7"><span>IT교육</span></a></li>
-	<li><a href="/view/program/list.do"><span>정부관료/공직자연수과정</span></a></li>
+	<li><a href="/view/subpage/view.do?idx=12"><span>정부관료/공직자연수과정</span></a></li>
 	</ul>
 	</li>
 
 	<li>
-	<a href="/view/program/list.do"><span>교육과정</span></a>
+	<a href="/view/program/list.do?tags=비학위연수과정"><span>교육과정</span></a>
 	<ul class="depth2">
-	<li><a href="/view/program/list.do"><span>비학위연수과정</span></a></li>
+	<li><a href="/view/program/list.do?tags=비학위연수과정"><span>비학위연수과정</span></a></li>
 	<li><a href="/view/program/list.do"><span>마이크로디그리과정</span></a></li>
-	<li><a href="/view/program/list.do"><span>산학협동공개강좌</span></a></li>
+	<li><a href="/view/program/list.do?tags=산학협동공개강좌"><span>산학협동공개강좌</span></a></li>
 	<li><a href="/view/program/list.do"><span>정부관료/공직자연수과정</span></a></li>
-	<li><a href="/view/subpage/view.do?idx=5"><span>온라인교육과정(Education 4.0Q)</span></a></li>
 	</ul>
 	</li>
 
 	<li>
-	<a href="#"><span>온라인 프로그램</span></a>
+	<a href="/view/subpage/view.do?idx=8"><span>온라인 컨텐츠</span></a>
 	<ul class="depth2">
 	<li><a href="/view/subpage/view.do?idx=8"><span>MOOCs</span></a></li>
 	</ul>
 	</li>
 
 	<li>
-	<a href="/view/program/list.do"><span>커뮤니티</span></a>
+	<a href="/user/board_data/list.do?board_idx=1"><span>커뮤니티</span></a>
 	<ul class="depth2">
-	<li><a href="/view/program/list.do"><span>공지사항</span></a></li>
-	<li><a href="/view/program/list.do"><span>교육문의</span></a></li>
-	<li><a href="/view/program/list.do"><span>FAQ</span></a></li>
-	<li><a href="/view/program/list.do"><span>갤러리</span></a></li>
+	<li><a href="/user/board_data/list.do?board_idx=1"><span>공지사항</span></a></li>
+	<li><a href="/user/board_data/list.do?board_idx=1"><span>교육문의</span></a></li>
+	<li><a href="/user/board_data/list.do?board_idx=1"><span>FAQ</span></a></li>
+	<li><a href="/user/board_data/list.do?board_idx=2"><span>갤러리</span></a></li>
 	</ul>
 	</li>
 
@@ -135,6 +135,7 @@
 	<a href="/view/subpage/view.do?idx=1"><span>기관소개</span></a>
 	<ul class="depth2">
 	<li><a href="/view/subpage/view.do?idx=1"><span>원장인사말</span></a></li>
+	<li><a href="/view/subpage/view.do?idx=13"><span>연혁</span></a></li>
 	<li><a href="/view/subpage/view.do?idx=2"><span>조직도 및 구성원</span></a></li>
 	<li><a href="/view/subpage/view.do?idx=3"><span>부서소개</span></a></li>
 	<li><a href="/view/subpage/view.do?idx=4"><span>오시는길</span></a></li>
@@ -142,43 +143,42 @@
 	</li>
 
 	<li>
-	<a href="/view/subpage/view.do?idx=5"><span>교육소개</span></a>
+	<a href="/view/subpage/view.do?idx=9"><span>교육소개</span></a>
 	<ul class="depth2">
-	<li><a href="/view/program/list.do"><span>비학위연수과정</span></a></li>
-	<li><a href="/view/program/list.do"><span>마이크로디그리 과정</span></a></li>
-	<li><a href="/view/program/list.do"><span>산학협동공개강좌</span></a></li>
+	<li><a href="/view/subpage/view.do?idx=9"><span>비학위연수과정</span></a></li>
+	<li><a href="/view/subpage/view.do?idx=10"><span>마이크로디그리 과정</span></a></li>
+	<li><a href="/view/subpage/view.do?idx=11"><span>산학협동공개강좌</span></a></li>
 	<li><a href="/view/subpage/view.do?idx=5"><span>Education 4.0Q</span></a></li>
 	<li><a href="/view/subpage/view.do?idx=6"><span>영재교육</span></a></li>
 	<li><a href="/view/subpage/view.do?idx=7"><span>IT교육</span></a></li>
-	<li><a href="/view/program/list.do"><span>정부관료/공직자연수과정</span></a></li>
+	<li><a href="/view/subpage/view.do?idx=12"><span>정부관료/공직자연수과정</span></a></li>
 	</ul>
 	</li>
 
 	<li>
-	<a href="/view/subpage/view.do?idx=5"><span>교육과정</span></a>
+	<a href="/view/program/list.do?tags=비학위연수과정"><span>교육과정</span></a>
 	<ul class="depth2">
-	<li><a href="/view/program/list.do"><span>비학위연수과정</span></a></li>
+		<li><a href="/view/program/list.do?tags=비학위연수과정"><span>비학위연수과정</span></a></li>
 	<li><a href="/view/program/list.do"><span>마이크로디그리과정</span></a></li>
-	<li><a href="/view/program/list.do"><span>산학협동공개강좌</span></a></li>
+	<li><a href="/view/program/list.do?tags=산학협동공개강좌"><span>산학협동공개강좌</span></a></li>
 	<li><a href="/view/program/list.do"><span>정부관료/공직자연수과정</span></a></li>
-	<li><a href="/view/subpage/view.do?idx=5"><span>온라인교육과정(Education 4.0Q)</span></a></li>
 	</ul>
 	</li>
 
 	<li>
-	<a href="/view/subpage/view.do?idx=8"><span>온라인 프로그램</span></a>
+	<a href="/view/subpage/view.do?idx=8"><span>온라인 컨텐츠</span></a>
 	<ul class="depth2">
 	<li><a href="/view/subpage/view.do?idx=8"><span>MOOCs</span></a></li>
 	</ul>
 	</li>
 
 	<li>
-	<a href="/view/program/list.do"><span>커뮤니티</span></a>
+	<a href="/user/board_data/list.do?board_idx=1"><span>커뮤니티</span></a>
 	<ul class="depth2">
-	<li><a href="/view/program/list.do"><span>공지사항</span></a></li>
-	<li><a href="/view/program/list.do"><span>교육문의</span></a></li>
-	<li><a href="/view/program/list.do"><span>FAQ</span></a></li>
-	<li><a href="/view/program/list.do"><span>갤러리</span></a></li>
+	<li><a href="/user/board_data/list.do?board_idx=1"><span>공지사항</span></a></li>
+	<li><a href="/user/board_data/list.do?board_idx=1"><span>교육문의</span></a></li>
+	<li><a href="/user/board_data/list.do?board_idx=1"><span>FAQ</span></a></li>
+	<li><a href="/user/board_data/list.do?board_idx=2"><span>갤러리</span></a></li>
 	</ul>
 	</li>
 
