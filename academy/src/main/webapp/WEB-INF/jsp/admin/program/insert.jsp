@@ -95,10 +95,22 @@
                                         	<input type="text" name="operate" id="operate" />
                                         </li>
                                         <li>
-                                        	<span class="list_t">운영 시간</span>
-                                        	<input type="text" name="start_tm" id="start_tm" class="input_size mr datecalendar2" />
+                                        	<span class="list_t">교육 대상</span>
+                                        	<input type="text" name="target" id="target" />
+                                        </li>
+                                        <li>
+                                        	<span class="list_t">교육 장소</span>
+                                        	<input type="text" name="place" id="place" />
+                                        </li>
+                                        <li>
+                                        	<span class="list_t">연락처</span>
+                                        	<input type="text" name="phone" id="phone" />
+                                        </li>
+                                        <li>
+                                        	<span class="list_t">교육 기간</span>
+                                        	<input type="text" name="start_tm" id="start_tm" class="input_size mr datecalendar2" autocomplete="off"/>
                                         	-
-                                        	<input type="text" name="end_tm" id="end_tm" class="input_size mr datecalendar2"/>
+                                        	<input type="text" name="end_tm" id="end_tm" class="input_size mr datecalendar2" autocomplete="off"/>
                                         </li>
                                         <li>
                                         	<span class="list_t">설명</span>

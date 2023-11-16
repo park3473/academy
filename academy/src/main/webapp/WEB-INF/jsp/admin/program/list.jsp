@@ -50,46 +50,16 @@
                                                 <div class="page">
                                                 	<table id="select_table">
                                                 		<tbody>
-                                                		<tr>
-                                                			<td>
-	                                                		<span>분야</span>
-	                                                		</td>
-	                                                		<td>
-				                                        	<c:forEach items="${model.filedTags }" var="item" varStatus="status">
-				                                        	${item.name }<input type="checkbox" name="tag" value="%23분야:${item.name }">
-				                                        	</c:forEach>
-				                                        	</td>
-                                                		</tr>
-                                                		<tr>
-                                                			<td>
-                                                			<span class="list_t">영역</span>
-                                                			</td>
-                                                			<td>
-				                                        	<c:forEach items="${model.AreaTags }" var="item" varStatus="status">
-				                                        	${item.name }<input type="checkbox" name="tag" value="%23영역:${item.name }">
-				                                        	</c:forEach>
-				                                        	</td>
-                                                		</tr>
-                                                		<tr>
-                                                			<td>
-	                                                		<span class="list_t">난이도</span>
-	                                                		</td>
-	                                                		<td>
-				                                        	<c:forEach items="${model.DiffTags }" var="item" varStatus="status">
-				                                        	${item.name }<input type="checkbox" name="tag" value="%23난이도:${item.name }">
-				                                        	</c:forEach>
-				                                        	</td>
-                                                		</tr>
-                                                		<tr>
-                                                			<td>
-	                                                		<span class="list_t">과정</span>
-	                                                		</td>
-	                                                		<td>
-				                                        	<c:forEach items="${model.ProcessTags }" var="item" varStatus="status">
-				                                        	${item.name }<input type="checkbox" name="tag" value="%23과정:${item.name }">
-				                                        	</c:forEach>
-				                                        	</td>
-                                                		</tr>
+                                                		<c:forEach var="entry" items="${model.groupedTags}">
+											            <tr>
+											              <td>${entry.key}</td>
+											              <td>
+											                <c:forEach var="tag" items="${entry.value}">
+											                  <input type="checkbox" name="tags" value="%23${tag}" <c:if test="${tag }"></c:if>> ${tag}
+											                </c:forEach>
+											              </td>
+											            </tr>
+											          </c:forEach>
                                                 		</tbody>
                                                 	</table>
                                                 </div>
@@ -180,7 +150,7 @@ $(document).ready(function () {
 function search(){
 	
 	let tagsStr = [];
-	$('input[name="tag"]:checked').each(function(i, field) {
+	$('input[name="tags"]:checked').each(function(i, field) {
         tagsStr.push(field.value);
     });
     tagsStr = tagsStr.join("");

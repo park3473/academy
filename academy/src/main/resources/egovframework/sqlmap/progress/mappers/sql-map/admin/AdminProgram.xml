@@ -39,8 +39,8 @@
 	</select>
 	
 	<insert id="setProgramDataInsert" parameterType="AdminProgramVo" useGeneratedKeys="true" keyProperty="idx">
-		INSERT INTO TBL_PROGRAM( TITLE , IMAGE , OPERATE , START_TM , END_TM , EXPLAN , CONTENT , CREATE_TM , UPDATE_TM )
-		VALUES(#{title} , #{image} , #{operate} , #{start_tm} , #{end_tm} , #{explan} , #{content} , now() , now() )
+		INSERT INTO TBL_PROGRAM( TITLE , IMAGE , OPERATE , TARGET , PLACE , PHONE ,  START_TM , END_TM , EXPLAN , CONTENT , CREATE_TM , UPDATE_TM )
+		VALUES(#{title} , #{image} , #{operate} , #{target} , #{place} , #{phone} , #{start_tm} , #{end_tm} , #{explan} , #{content} , now() , now() )
 	</insert>
 	
 	<delete id="setProgramDataDelete" parameterType="AdminProgramVo">
@@ -53,11 +53,30 @@
 		<if test="image != ''">
 			IMAGE = #{image},
 		</if>
-		OPERATE = #{operate},
-		START_TM = #{start_tm},
-		END_TM = #{end_tm},
-		EXPLAN = #{explan},
-		CONTENT = #{content},
+		<if test="operate != ''">
+			OPERATE = #{operate},
+		</if>
+		<if test="start_tm != ''">
+			START_TM = #{start_tm},
+		</if>
+		<if test="end_tm != ''">
+			END_TM = #{end_tm},
+		</if>
+		<if test="explan != ''">
+			EXPLAN = #{explan},
+		</if>
+		<if test="content != ''">
+			CONTENT = #{content},
+		</if>
+		<if test="taeget != ''">
+			TARGET = #{target},
+		</if>
+		<if test="place != ''">
+			PLACE = #{place},
+		</if>
+		<if test="phone != ''">
+			PHONE = #{phone},
+		</if>
 		UPDATE_TM = now()
 		WHERE IDX = #{idx}
 	</update>
