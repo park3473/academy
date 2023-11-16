@@ -107,5 +107,9 @@
 		DELETE FROM TBL_TAGS WHERE IDX = #{idx}
 	</delete>
 	
+	<insert id="setProgramTags" parameterType="AdminProgramTagsVo">
+		INSERT INTO TBL_PROGRAM_TAGS (PRO_IDX , TAG_IDX) VALUES ( #{pro_idx} , #{tag_idx} )
+	</insert>
+	
 
 </mapper>

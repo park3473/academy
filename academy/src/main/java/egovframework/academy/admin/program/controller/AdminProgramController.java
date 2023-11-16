@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.system.util.SUtil;
 
+import egovframework.academy.admin.program.model.AdminProgramTagsVo;
 import egovframework.academy.admin.program.model.AdminProgramVo;
 import egovframework.academy.admin.program.model.AdminTagsVo;
 import egovframework.academy.admin.program.service.AdminProgramService;
@@ -95,6 +96,22 @@ public class AdminProgramController {
 		String result = adminProgramService.setProgramData(AdminProgramVo , "insert");
 		
 		System.out.println("result : " + result);
+		
+		System.out.println("tags : " + AdminProgramVo.getTags());
+		
+		String[] tagsArray = AdminProgramVo.getTags().split(",");
+		
+		for(String tag : tagsArray) {
+			
+			System.out.println("tag_idx : " + tag);
+			System.out.println("pro_idx : " + result);
+			AdminProgramTagsVo ProTags = new AdminProgramTagsVo();
+			ProTags.setPro_idx(result);
+			ProTags.setTag_idx(tag);
+			
+			adminProgramService.setProgramTags(ProTags);
+			
+		}
 		
 		return result;
 		

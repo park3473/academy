@@ -25,6 +25,16 @@
     	height: 100%;
     	padding: 0px;
     }
+	#bootstrap-data-table tr th{
+	
+	text-align: center;
+	
+	}
+	
+	#select_table tr td{
+		border:1px solid black;
+	}
+	
 </style>
 <!-- ckeditor필요한 부분 -->
 
@@ -61,25 +71,21 @@
                                         	<input class="input_title" type="text" name="title" id="title" >
                                         </li>
                                         <li>
-                                        	<span class="list_t">분야</span>
-                                        	<c:forEach items="${model.filedTags }" var="item" varStatus="status">
-                                        	${item.name }<input type="checkbox" name="tag" value="${item.idx }">
-                                        	</c:forEach>
-                                        	<br>
-                                        	<span class="list_t">영역</span>
-                                        	<c:forEach items="${model.AreaTags }" var="item" varStatus="status">
-                                        	${item.name }<input type="checkbox" name="tag" value="${item.idx }">
-                                        	</c:forEach>
-                                        	<br>
-                                        	<span class="list_t">난이도</span>
-                                        	<c:forEach items="${model.DiffTags }" var="item" varStatus="status">
-                                        	${item.name }<input type="checkbox" name="tag" value="${item.idx }">
-                                        	</c:forEach>
-                                        	<br>
-                                        	<span class="list_t">과정</span>
-                                        	<c:forEach items="${model.ProcessTags }" var="item" varStatus="status">
-                                        	${item.name }<input type="checkbox" name="tag" value="${item.idx }">
-                                        	</c:forEach>
+                                        	<span class="list_t">태그</span>
+                                        	<table id="select_table">
+                                               <tbody>
+                                               		<c:forEach var="entry" items="${model.groupedTags}">
+                                               				<tr>
+                                               					<td>${entry.key}</td>
+											              		<td>
+                                               					<c:forEach var="tag" items="${entry.value}">
+			                                        				<input type="checkbox" name="tag" value="${tag.idx}">${tag.name}
+			                                        			</c:forEach>
+			                                        			</td>
+				                                        	</tr>
+                                               		</c:forEach>
+                                               </tbody>
+                                            </table>
                                         	
                                         </li>
                                         <li>

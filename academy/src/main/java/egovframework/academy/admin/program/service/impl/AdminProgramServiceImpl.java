@@ -13,6 +13,7 @@ import org.springframework.ui.ModelMap;
 
 import com.system.util.PageVO;
 
+import egovframework.academy.admin.program.model.AdminProgramTagsVo;
 import egovframework.academy.admin.program.model.AdminProgramVo;
 import egovframework.academy.admin.program.model.AdminTagsVo;
 import egovframework.academy.admin.program.service.AdminProgramService;
@@ -194,6 +195,13 @@ public class AdminProgramServiceImpl implements AdminProgramService {
 			break;
 		}
 		
+		
+	}
+
+	@Override
+	public void setProgramTags(AdminProgramTagsVo proTags) {
+		
+		adminProgramMapper.setProgramTags(proTags);
 		
 	}
 

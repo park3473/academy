@@ -42,7 +42,6 @@
                                 <span></span>
                                 <span>프로그램 관리</span>
                             </div>
-                            
                             <div class="member_seach_form">
                                 <div class="member_01_wrap">
                                      <form>
@@ -55,7 +54,10 @@
 											              <td>${entry.key}</td>
 											              <td>
 											                <c:forEach var="tag" items="${entry.value}">
-											                  <input type="checkbox" name="tags" value="%23${tag}" <c:if test="${tag }"></c:if>> ${tag}
+											                  <input type="checkbox" name="tags" value="%23${tag}" 
+											                 	<c:if test="${model.beforeData.tags.contains(tag)}">
+																  checked="checked"
+																</c:if>> ${tag}
 											                </c:forEach>
 											              </td>
 											            </tr>

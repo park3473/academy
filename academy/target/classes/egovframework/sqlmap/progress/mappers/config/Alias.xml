@@ -27,6 +27,7 @@
 		<typeAlias type="egovframework.academy.admin.banner.model.AdminBannerVo" alias="AdminBannerVo"/>
 		<typeAlias type="egovframework.academy.admin.program.model.AdminProgramVo" alias="AdminProgramVo"/>
 		<typeAlias type="egovframework.academy.admin.program.model.AdminTagsVo" alias="AdminTagsVo"/>
+		<typeAlias type="egovframework.academy.admin.program.model.AdminProgramTagsVo" alias="AdminProgramTagsVo"/>
 		
 		<typeAlias type="egovframework.academy.menu.model.MenuVo" alias="MenuVo"/>
 		<typeAlias type="egovframework.academy.file.model.FileVo" alias="FileVo"/>
