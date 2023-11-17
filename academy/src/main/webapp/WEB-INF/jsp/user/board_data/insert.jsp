@@ -170,54 +170,17 @@
 	.tb_bo_tit_02{font-size:20px;padding:10px 0;margin-bottom:15px;margin-top:30px}
 	}
 	
-</style>
-<style>
-        .container_2 {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #333;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
-
-        textarea {
-            height: 150px;
-        }
-
-        input[type="submit"] {
-            background-color: #007bff;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
+	.sub_tit_txt {position:absolute;width:100%}
+.sub_tit_line {border-bottom:2px #243558 solid;padding:0 0 5px 0}
+.sub_tit_chach {color:rgba(255,255,255,1);font-size:40px;margin-top:32vh;letter-spacing:0}
+.small_txt {padding-top:30px}
+.sub_tit {text-align:center;position:relative}
+#bo_w .bo_w_info .frm_input{float:left;width:33%;}
+#bo_w .write_div{margin:10px 0;position:relative;}
+#bo_w .bo_w_info .frm_input{float:left;width:33%;}
+.btn_confirm {text-align:right;}
+a.btn_cancel {display:inline-block;border:1px solid #dedede;background:#f4f4f4;color:white;text-decoration:none;vertical-align:middle;}
+a.btn,.btn{line-height:35px;height:35px;padding:0 15px !important;text-align:center;border-radius:3px;font-weight:normal;border:0;font-size:13px;background: #01438f;color:white;}
 </style>
 
 <div class="container">
@@ -244,29 +207,68 @@
 <!-- 내용 -->
 <!-- 일반 게시판 타입 -->
 <c:if test="${model.BoardConfig.type == '2' }">
-		<div>
-			<h1>교육 문의</h1>
-		</div>
-<div class="container_2">
-        <form action="/your_server_side_handler" method="post">
-            <label for="title">제목:</label>
-            <input type="text" id="title" name="title" required>
-
-            <label for="author">작성자:</label>
-            <input type="text" id="author" name="author" required>
-
-            <label for="contact">연락처:</label>
-            <input type="text" id="contact" name="contact">
-
-            <label for="email">이메일:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="content">내용:</label>
-            <textarea id="content" name="content" required></textarea>
-
-            <input type="submit" value="제출">
-        </form>
+<div class="sub_tit">
+<div class="sub_tit_txt">
+<div class="txt_40 f_wet_03 gray_10 spa_01 font_noto">
+			<!--타이틀조건출력-->
+					<span class="sub_tit_line" title="CONTACT US ">CONTACT US </span>
+				<!--타이틀조건출력끝-->
 </div>
+</div>
+</div>
+<div class="container b_pad_15">
+
+<section id="bo_w">
+
+    <!-- 게시물 작성/수정 시작 { -->
+    <form name="fwrite" id="fwrite" action="http://leeyunbio.com/bbs/write_update.php" onsubmit="return fwrite_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off" style="width:100%">
+    
+
+<div class="font_noto f_wet_05 txt_20">고객정보</div>
+
+    <div class="bo_w_info write_div">
+        <input type="text" name="wr_1" value="" id="wr_1" required="" class="frm_input required" placeholder="회사명">
+
+        <input type="text" name="wr_name" value="" id="wr_name" required="" class="frm_input gab required" placeholder="담당자명">
+
+        <input type="password" name="wr_password" id="wr_password" required="" class="frm_input required" placeholder="비밀번호">
+    </div>
+
+    <div class="bo_w_info write_div">
+        <input type="text" name="wr_2" value="" id="wr_2" required="" class="frm_input required" placeholder="전화번호">
+
+        <input type="text" name="wr_3" value="" id="wr_3" required="" class="frm_input gab required" placeholder="휴대전화">
+
+        <input type="text" name="wr_email" value="" id="wr_email" class="frm_input email" placeholder="이메일">
+    </div>
+
+
+
+
+        <div class="write_div c_none">
+        
+<input type="checkbox" id="html" name="html" onclick="html_auto_br(this);" value="">
+<label for="html">HTML</label>    </div>
+    
+
+<div class="font_noto f_wet_05 txt_20">기타문의</div>
+
+    <div class="write_div">
+        <div class="wr_content ">
+<textarea id="wr_content" name="wr_content" class="" maxlength="65536" style="width:100%;height:300px"></textarea></div>
+        
+    </div>
+    <div class="btn_confirm write_div">
+        <a href="./" class="btn_cancel btn">취소</a>
+        <input type="submit" value="작성완료" id="btn_submit" accesskey="s" class="btn_submit btn">
+    </div>
+    </form>
+
+    
+</section>
+<!-- } 게시물 작성/수정 끝 --></div>
+
+
 </c:if>
 
 <!-- 내용끝 -->
