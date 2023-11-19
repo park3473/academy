@@ -135,6 +135,13 @@ public class AdminProgramController {
 		
 	}
 	
+	@RequestMapping(value="/admin/program/update.do" , method = RequestMethod.POST)
+	public void AdminProgramUpdateData(@ModelAttribute("AdminProgramVo")AdminProgramVo AdminProgramVo , HttpServletRequest request , HttpServletResponse response) {
+		
+		adminProgramService.setProgramData(AdminProgramVo , "update");
+		
+	}
+	
 	/*태그 부분들*/
 	@RequestMapping(value="/admin/tags/list.do" , method = RequestMethod.GET)
 	public ModelAndView AdminTagsListGet(@ModelAttribute("AdminTagsVo")AdminTagsVo AdminTagsVo , HttpServletRequest request , HttpServletResponse response) {

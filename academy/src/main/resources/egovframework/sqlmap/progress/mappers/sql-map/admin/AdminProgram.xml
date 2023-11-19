@@ -68,7 +68,7 @@
 		<if test="content != ''">
 			CONTENT = #{content},
 		</if>
-		<if test="taeget != ''">
+		<if test="target != ''">
 			TARGET = #{target},
 		</if>
 		<if test="place != ''">

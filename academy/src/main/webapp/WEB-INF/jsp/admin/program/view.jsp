@@ -48,10 +48,11 @@
                         <input type="hidden" name="member_id" value="${sessionScope.UserId }"  />
                         <input type="hidden" name="name" value="${sessionScope.UserName }"  />
                         <input type="hidden" name="image_change_bool" value="false" />
+                        <input type="hidden" name="idx" value="${model.view.idx }" />
                         <div class="sc_con" id="div_con">
                             <div class="title">
                                 <span></span>
-                                <span>게시글 등록</span>
+                                <span>프로그램 수정</span>
                             </div>
                             <div class="member_register_wrap">
                                 <div class="member_input_wrap">
@@ -61,26 +62,8 @@
                                         	<input class="input_title" type="text" name="title" id="title" value="${model.view.title }" >
                                         </li>
                                         <li>
-                                        	<span class="list_t">분야</span>
-                                        	<c:forEach items="${model.filedTags }" var="item" varStatus="status">
-                                        	${item.name }<input type="checkbox" name="tag" value="${item.idx }" tag_name="분야:${item.name }">
-                                        	</c:forEach>
-                                        	<br>
-                                        	<span class="list_t">영역</span>
-                                        	<c:forEach items="${model.AreaTags }" var="item" varStatus="status">
-                                        	${item.name }<input type="checkbox" name="tag" value="${item.idx }" tag_name="영역:${item.name }" >
-                                        	</c:forEach>
-                                        	<br>
-                                        	<span class="list_t">난이도</span>
-                                        	<c:forEach items="${model.DiffTags }" var="item" varStatus="status">
-                                        	${item.name }<input type="checkbox" name="tag" value="${item.idx }" tag_name="난이도:${item.name }" >
-                                        	</c:forEach>
-                                        	<br>
-                                        	<span class="list_t">과정</span>
-                                        	<c:forEach items="${model.ProcessTags }" var="item" varStatus="status">
-                                        	${item.name }<input type="checkbox" name="tag" value="${item.idx }" tag_name="과정:${item.name }" >
-                                        	</c:forEach>
-                                        	
+                                        	<span class="list_t">태그 수정</span>
+                                        	<button type="button" onclick="">태그 관리</button>
                                         </li>
                                         <li>
                                         	<div style="width:227px;heigth:295px;">
@@ -92,10 +75,22 @@
                                         </li>
                                         <li>
                                         	<span class="list_t">운영 조직</span>
-                                        	<input type="text" name="operate" id="operate" value="${model.view.operate }"/>
+                                        	<input type="text" name="operate" id="operate" class="input_title" value="${model.view.operate }"/>
                                         </li>
                                         <li>
-                                        	<span class="list_t">운영 시간</span>
+                                        	<span class="list_t">교육 대상</span>
+                                        	<input type="text" name="target" id="target" class="input_title" value="${model.view.target }"/>
+                                        </li>
+                                        <li>
+                                        	<span class="list_t">교육 장소</span>
+                                        	<input type="text" name="place" id="place" class="input_title" value="${model.view.place }"/>
+                                        </li>
+                                        <li>
+                                        	<span class="list_t">연락처</span>
+                                        	<input type="text" name="phone" id="phone" value="${model.view.phone }"/>
+                                        </li>
+                                        <li>
+                                        	<span class="list_t">교육 시간</span>
                                         	<input type="text" name="start_tm" id="start_tm" class="input_size mr datecalendar2" value="${model.view.start_tm }" />
                                         	-
                                         	<input type="text" name="end_tm" id="end_tm" class="input_size mr datecalendar2" value="${model.view.end_tm }"/>
@@ -174,7 +169,7 @@ $(document).ready(function () {
         $("input[type=checkbox][name=tag][tag_name='" + value.name + "']").prop('checked', true);
     });
     
-    //theEditor.setData('${model.view.content}');
+    theEditor.setData('${model.view.content}');
 	
 });
 
@@ -202,23 +197,16 @@ function insertClick()
 
 	var formData = new FormData($('#insertForm')[0]);
 	formData.append('content',theEditor.getData());
-	let tagsStr = [];
-    $('input[name="tag"]:checked').each(function(i, field) {
-        tagsStr.push(field.value);
-    });
-    tagsStr = tagsStr.join(",");  // 쉼표를 사용하여 문자열로 합칩니다.
-
-    // FormData 객체에 문자열을 추가한다.
-    formData.append('tags', tagsStr);
 	
 	$.ajax({
-		url : '/admin/program/insert.do',
+		url : '/admin/program/update.do',
 		type : 'POST',
 		data : formData,
 		processData :false,
 		contentType:false,
 		success : function(result , status){
-			console.log('success : ' + result);
+			console.log('success');
+			location.href='/admin/program/list.do';
 		},
 		error : function(xhr , status , error){
 			console.log('error : ' , error);
