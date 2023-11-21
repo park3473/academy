@@ -35,8 +35,8 @@
 	</select>
 	
 	<insert id="setBoardDataInsert" parameterType="UserBoardDataVo">
-		INSERT INTO TBL_BOARD_DATA (board_idx , level , type , title , content , member_id , name , create_tm , update_tm)
-		VALUES(#{board_idx} , #{level} , #{type} , #{title} , #{content} , #{member_id} , #{name} , now() , now())
+		INSERT INTO TBL_BOARD_DATA (board_idx , level , type , password , title , phone , phone2 , company , email , content , member_id , name , create_tm , update_tm)
+		VALUES(#{board_idx} , #{level} , #{type} , #{password} , #{title} , #{phone} , #{phone2} , #{company} , #{email} , #{content} , #{member_id} , #{name} , now() , now())
 	</insert>
 	
 	<select id="getBoardData" parameterType="UserBoardDataVo" resultType="UserBoardDataVo">
@@ -45,12 +45,37 @@
 	</select>
 	
 	<update id="setBoardDataUpdate" parameterType="UserBoardDataVo">
-		UPDATE TBL_BOARD_DATA SET 
+		UPDATE TBL_BOARD_DATA SET
+		<if test="level != ''"> 
 		level = #{level},
+		</if>
+		<if test="type != ''">
 		type = #{type},
+		</if>
+		<if test="title != ''">
 		title = #{title},
+		</if>
+		<if test="content != ''">
 		content = #{content},
+		</if>
+		<if test="name != ''">
 		name = #{name},
+		</if>
+		<if test="company != ''">
+		company = #{company},
+		</if>
+		<if test="phone != ''">
+		phone = #{phone},
+		</if>
+		<if test="phone2 != ''">
+		phone2 = #{phone2},
+		</if>
+		<if test="member_id != ''">
+		member_id = #{member_id},
+		</if>
+		<if test="email != ''">
+		email != '',
+		</if>
 		update_tm = now()
 		WHERE idx = #{idx} AND member_id = #{member_id} AND board_idx = #{board_idx} 
 	</update>

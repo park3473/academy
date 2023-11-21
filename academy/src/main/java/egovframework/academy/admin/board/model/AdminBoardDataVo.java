@@ -9,16 +9,20 @@ public class AdminBoardDataVo extends SearchVo{
 	String level = "";			//게시판 레벨
 	String type = "";			//게시판 타입
 	String title = "";			//게시판 제목
+	String password = "";		//게시판 비밀번호
 	String content = "";		//게시판 내용
+	String member_id = "";		//작성자 아이디
+	String company = "";		//작성자 회사
 	String email = "";			//작성자 이메일
 	String phone = "";			//작성자 번호
-	String member_id = "";		//작성자 아이디
+	String phone2 = "";			//작성자 번호2
 	String name = "";			//작성자 이름
 	String image = "";			//게시글 이미지 (썸네일용);
 	String file = "";			//게시글 파일 여부
 	String create_tm = "";		//게시글 생성 시간
 	String update_tm = "";		//게시글 수정 시간
 	String rdcnt = "";			//게시글 조회수
+	
 	
 	public String getIdx() {
 		return idx;
@@ -50,6 +54,12 @@ public class AdminBoardDataVo extends SearchVo{
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public String getContent() {
 		return content;
 	}
@@ -61,6 +71,30 @@ public class AdminBoardDataVo extends SearchVo{
 	}
 	public void setMember_id(String member_id) {
 		this.member_id = member_id;
+	}
+	public String getCompany() {
+		return company;
+	}
+	public void setCompany(String company) {
+		this.company = company;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getPhone2() {
+		return phone2;
+	}
+	public void setPhone2(String phone2) {
+		this.phone2 = phone2;
 	}
 	public String getName() {
 		return name;
@@ -98,6 +132,8 @@ public class AdminBoardDataVo extends SearchVo{
 	public void setRdcnt(String rdcnt) {
 		this.rdcnt = rdcnt;
 	}
+	
+	
 	
 	
 	

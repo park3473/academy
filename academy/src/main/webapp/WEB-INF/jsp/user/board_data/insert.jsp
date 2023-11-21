@@ -227,30 +227,16 @@ a.btn,.btn{line-height:35px;height:35px;padding:0 15px !important;text-align:cen
 <div class="font_noto f_wet_05 txt_20">고객정보</div>
 
     <div class="bo_w_info write_div">
-        <input type="text" name="wr_1" value="" id="wr_1" required="" class="frm_input required" placeholder="회사명">
-
-        <input type="text" name="wr_name" value="" id="wr_name" required="" class="frm_input gab required" placeholder="담당자명">
-
-        <input type="password" name="wr_password" id="wr_password" required="" class="frm_input required" placeholder="비밀번호">
+        <input type="text" name="company" value="" id="company" required="" class="frm_input required" placeholder="회사명">
+        <input type="text" name="name" value="" id="name" required="" class="frm_input gab required" placeholder="담당자명">
+        <input type="text" name="password" value="" id="name" required="" class="frm_input gab required" oninput="this.value = this.value.replace(/[^0-9]/g, '')" maxlength="4" placeholder="비밀번호(숫자4자리)">
     </div>
-
     <div class="bo_w_info write_div">
-        <input type="text" name="wr_2" value="" id="wr_2" required="" class="frm_input required" placeholder="전화번호">
-
-        <input type="text" name="wr_3" value="" id="wr_3" required="" class="frm_input gab required" placeholder="휴대전화">
-
-        <input type="text" name="wr_email" value="" id="wr_email" class="frm_input email" placeholder="이메일">
+        <input type="text" name="phone2" value="" id="wr_2" required="" class="frm_input required" oninput="this.value = this.value.replace(/[^0-9]/g, '')" maxlength="11" placeholder="전화번호(-없이 입력해주세요.)">
+        <input type="text" name="phone" value="" id="wr_3" required="" class="frm_input gab required" oninput="this.value = this.value.replace(/[^0-9]/g, '')" maxlength="11" placeholder="휴대전화(-없이 입력해주세요.)">
+        <input type="text" name="email" value="" id="wr_email" class="frm_input email" placeholder="이메일(@포함 입력 바랍니다.)">
     </div>
-
-
-
-
-        <div class="write_div c_none">
-        
-<input type="checkbox" id="html" name="html" onclick="html_auto_br(this);" value="">
-<label for="html">HTML</label>    </div>
-    
-
+    <br>
 <div class="font_noto f_wet_05 txt_20">기타문의</div>
 
     <div class="write_div">
