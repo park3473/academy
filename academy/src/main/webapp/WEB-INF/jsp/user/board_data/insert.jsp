@@ -221,9 +221,8 @@ a.btn,.btn{line-height:35px;height:35px;padding:0 15px !important;text-align:cen
 <section id="bo_w">
 
     <!-- 게시물 작성/수정 시작 { -->
-    <form name="fwrite" id="fwrite" action="http://leeyunbio.com/bbs/write_update.php" onsubmit="return fwrite_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off" style="width:100%">
-    
-
+    <form name="fwrite" id="fwrite" action="/user/board_data/insert.do" onsubmit="return fwrite_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off" style="width:100%">
+	<input type="hidden" value="${model.BoardConfig.idx }" name="board_idx">
 <div class="font_noto f_wet_05 txt_20">고객정보</div>
 
     <div class="bo_w_info write_div">

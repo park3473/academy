@@ -119,6 +119,10 @@ public class UserBoardDataController {
 		String Board_idx = UserBoardDataVo.getBoard_idx();
 		String Board_data_idx = UserBoardDataVo.getIdx();
 		
+		if(UserBoardDataVo.getFile().equals("TRUE")) {
+			
+			
+		
 		FileVo filevo = new FileVo();
 		
 		//파일 등록
@@ -141,6 +145,8 @@ public class UserBoardDataController {
 			
 			fileService.setFileData(filevo);
 			
+			}
+		
 		}
 		
 		userBoardDataService.setBoardData(UserBoardDataVo , "insert");
