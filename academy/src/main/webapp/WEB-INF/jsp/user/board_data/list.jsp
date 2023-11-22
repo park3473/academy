@@ -183,7 +183,57 @@
 	    float:right;
 	}
 	
-	
+	.faq-wrapper {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.faq-wrapper h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.faq-item {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.question-btn {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.question-btn:focus {
+
+	border : none;
+	outline : none;
+
+}
+
+.toggle-icon {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.answer {
+    display: none;
+    padding: 0 10px 10px;
+    color: #333;
+    background-color : aliceblue;
+}
+
+.answer p {
+    margin: 0;
+}
         
 </style>
 
@@ -327,43 +377,19 @@
 <c:if test="${model.BoardConfig.type == '3'}">
 <!-- 콘텐츠 -->
 <div class="container p-0">
- 
-	<div class="container-2">
-  <h2>Frequently Asked Questions</h2>
-  <div class="accordion">
-    <div class="accordion-item">
-      <button id="accordion-button-1" aria-expanded="false"><span class="accordion-title">Why is the moon sometimes out during the day?</span><span class="icon" aria-hidden="true"></span></button>
-      <div class="accordion-content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
-      </div>
+    <div class="faq-wrapper">
+        <c:forEach items="${model.BoardDataList }" var="item" varStatus="status">
+        <div class="faq-item">
+            <button class="question-btn">
+                <span>${status.index + 1} ${item.title }</span>
+                <span class="toggle-icon">+</span>
+            </button>
+            <div class="answer">
+                ${item.content }
+            </div>
+        </div>
+        </c:forEach>
     </div>
-    <div class="accordion-item">
-      <button id="accordion-button-2" aria-expanded="false"><span class="accordion-title">Why is the sky blue?</span><span class="icon" aria-hidden="true"></span></button>
-      <div class="accordion-content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <button id="accordion-button-3" aria-expanded="false"><span class="accordion-title">Will we ever discover aliens?</span><span class="icon" aria-hidden="true"></span></button>
-      <div class="accordion-content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <button id="accordion-button-4" aria-expanded="false"><span class="accordion-title">How much does the Earth weigh?</span><span class="icon" aria-hidden="true"></span></button>
-      <div class="accordion-content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <button id="accordion-button-5" aria-expanded="false"><span class="accordion-title">How do airplanes stay up?</span><span class="icon" aria-hidden="true"></span></button>
-      <div class="accordion-content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
-      </div>
-    </div>
-  </div>
-</div>
-	
 </div>
 <!-- 콘텐츠끝 -->
 </c:if>
@@ -378,6 +404,17 @@
 <%@ include file="../../include/user/footer.jsp" %>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script type="text/javascript">
+document.querySelectorAll('.question-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const answer = button.nextElementSibling;
+
+        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+
+        // Change the '+' to '−' when the answer is visible
+        button.querySelector('.toggle-icon').textContent = 
+            answer.style.display === 'block' ? '−' : '+';
+    });
+});
 
 
 </script>
