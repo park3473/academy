@@ -183,6 +183,7 @@
 	    float:right;
 	}
 	
+	
         
 </style>
 
@@ -193,8 +194,8 @@
 <div class="col">
 <ul class="nav gab_04">
 <li><a class="nav-link" href="/user/board_data/list.do?board_idx=1">공지사항</a></li>
-<li><a class="nav-link" href="/user/board_data/list.do?board_idx=1">교육문의</a></li>
-<li><a class="nav-link" href="/user/board_data/list.do?board_idx=1">FAQ</a></li>
+<li><a class="nav-link" href="/user/board_data/insert.do?board_idx=3">교육문의</a></li>
+<li><a class="nav-link" href="/user/board_data/list.do?board_idx=4">FAQ</a></li>
 <li><a class="nav-link" href="/user/board_data/list.do?board_idx=2">갤러리</a></li>
 </ul>
 </div>
@@ -243,7 +244,7 @@
 <!-- 썸네일 게시판 -->
 
 <!-- 일반 게시판 -->
-<c:if test="${model.BoardConfig.type == '0' || model.BoardConfig.type == '2'}">
+<c:if test="${model.BoardConfig.type == '0'}">
 <!-- 콘텐츠 -->
 <div class="container p-0">
  
@@ -317,20 +318,56 @@
 	</div>
 	<!-- 페이징 끝-->
 	
-	
-	<c:if test="${model.BoardConfig.type == '2' }">
-	<div class="tb_page">
-		<div id="bttn_01_div">
-			<button type="button" class="bttn_01" onclick="location.href='/user/board_data/insert.do?board_idx=${model.BoardConfig.idx}'" >문의 작성</button>
-		</div>
-	</div>
-	</c:if>
+</div>
+<!-- 콘텐츠끝 -->
+</c:if>
+<!-- 일반게시판 끝 -->
+
+<!-- 일반 게시판 -->
+<c:if test="${model.BoardConfig.type == '3'}">
+<!-- 콘텐츠 -->
+<div class="container p-0">
+ 
+	<div class="container-2">
+  <h2>Frequently Asked Questions</h2>
+  <div class="accordion">
+    <div class="accordion-item">
+      <button id="accordion-button-1" aria-expanded="false"><span class="accordion-title">Why is the moon sometimes out during the day?</span><span class="icon" aria-hidden="true"></span></button>
+      <div class="accordion-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button id="accordion-button-2" aria-expanded="false"><span class="accordion-title">Why is the sky blue?</span><span class="icon" aria-hidden="true"></span></button>
+      <div class="accordion-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button id="accordion-button-3" aria-expanded="false"><span class="accordion-title">Will we ever discover aliens?</span><span class="icon" aria-hidden="true"></span></button>
+      <div class="accordion-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button id="accordion-button-4" aria-expanded="false"><span class="accordion-title">How much does the Earth weigh?</span><span class="icon" aria-hidden="true"></span></button>
+      <div class="accordion-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button id="accordion-button-5" aria-expanded="false"><span class="accordion-title">How do airplanes stay up?</span><span class="icon" aria-hidden="true"></span></button>
+      <div class="accordion-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
+      </div>
+    </div>
+  </div>
+</div>
 	
 </div>
 <!-- 콘텐츠끝 -->
 </c:if>
-<!-- 썸네일 게시판 -->
-
+<!-- 일반게시판 끝 -->
 
 </div>
 <!-- 서브끝 -->
@@ -341,7 +378,6 @@
 <%@ include file="../../include/user/footer.jsp" %>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script type="text/javascript">
-
 
 
 </script>

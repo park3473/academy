@@ -121,8 +121,8 @@
 	<a href="/user/board_data/list.do?board_idx=1"><span>커뮤니티</span></a>
 	<ul class="depth2">
 	<li><a href="/user/board_data/list.do?board_idx=1"><span>공지사항</span></a></li>
-	<li><a href="/user/board_data/list.do?board_idx=1"><span>교육문의</span></a></li>
-	<li><a href="/user/board_data/list.do?board_idx=1"><span>FAQ</span></a></li>
+	<li><a href="/user/board_data/insert.do?board_idx=3"><span>교육문의</span></a></li>
+	<li><a href="/user/board_data/list.do?board_idx=4"><span>FAQ</span></a></li>
 	<li><a href="/user/board_data/list.do?board_idx=2"><span>갤러리</span></a></li>
 	</ul>
 	</li>
@@ -176,8 +176,8 @@
 	<a href="/user/board_data/list.do?board_idx=1"><span>커뮤니티</span></a>
 	<ul class="depth2">
 	<li><a href="/user/board_data/list.do?board_idx=1"><span>공지사항</span></a></li>
-	<li><a href="/user/board_data/list.do?board_idx=1"><span>교육문의</span></a></li>
-	<li><a href="/user/board_data/list.do?board_idx=1"><span>FAQ</span></a></li>
+	<li><a href="/user/board_data/insert.do?board_idx=3"><span>교육문의</span></a></li>
+	<li><a href="/user/board_data/list.do?board_idx=4"><span>FAQ</span></a></li>
 	<li><a href="/user/board_data/list.do?board_idx=2"><span>갤러리</span></a></li>
 	</ul>
 	</li>

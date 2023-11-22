@@ -151,7 +151,7 @@ public class UserBoardDataController {
 		
 		userBoardDataService.setBoardData(UserBoardDataVo , "insert");
 		
-		SUtil.AlertAndPageMove(response, "게시글 등록이 완료되었습니다.", "/user/board_data/list.do?Board_idx=" + Board_idx);
+		SUtil.AlertAndPageMove(response, "게시글 등록이 완료되었습니다.", "/user/board_data/list.do?board_idx=" + Board_idx);
 		
 	}
 	
@@ -228,6 +228,8 @@ public class UserBoardDataController {
 		String Board_idx = UserBoardDataVo.getBoard_idx();
 		String Board_data_idx = UserBoardDataVo.getIdx();
 		
+		if(UserBoardDataVo.getFile().equals("TRUE")) {
+		
 		FileVo filevo = new FileVo();
 		
 		//파일 등록
@@ -250,9 +252,10 @@ public class UserBoardDataController {
 			
 			fileService.setFileData(filevo);
 			
+			}
 		}
 		
-		SUtil.AlertAndPageMove(response, "게시글 수정이 완료되었습니다.", "/user/board_data/list.do?Board_idx=" + Board_idx);
+		SUtil.AlertAndPageMove(response, "게시글 수정이 완료되었습니다.", "/user/board_data/list.do?board_idx=" + Board_idx);
 		
 	}
 	

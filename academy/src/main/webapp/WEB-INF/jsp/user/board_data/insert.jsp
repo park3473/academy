@@ -211,7 +211,7 @@ a.btn,.btn{line-height:35px;height:35px;padding:0 15px !important;text-align:cen
 <div class="sub_tit_txt">
 <div class="txt_40 f_wet_03 gray_10 spa_01 font_noto">
 			<!--타이틀조건출력-->
-					<span class="sub_tit_line" title="CONTACT US ">CONTACT US </span>
+					<span class="sub_tit_line" title="CONTACT US ">교육 문의 </span>
 				<!--타이틀조건출력끝-->
 </div>
 </div>
@@ -223,7 +223,17 @@ a.btn,.btn{line-height:35px;height:35px;padding:0 15px !important;text-align:cen
     <!-- 게시물 작성/수정 시작 { -->
     <form name="fwrite" id="fwrite" action="/user/board_data/insert.do" onsubmit="return fwrite_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off" style="width:100%">
 	<input type="hidden" value="${model.BoardConfig.idx }" name="board_idx">
-<div class="font_noto f_wet_05 txt_20">고객정보</div>
+	<input type="hidden" value="${model.BoardConfig.type }" name="type">
+	<input type="hidden" value="${model.BoardConfig.level }" name="level">
+	
+	
+	<div class="font_noto f_wet_05 txt_20">문의 제목</div>
+	
+	<div class="bo_w_info_wirte_div">
+		<input type="text" name="title" value="" id="title" required="" class="frm_input required" style="width:100%;">
+	</div>
+	
+	<div class="font_noto f_wet_05 txt_20">고객정보</div>
 
     <div class="bo_w_info write_div">
         <input type="text" name="company" value="" id="company" required="" class="frm_input required" placeholder="회사명">
@@ -236,11 +246,11 @@ a.btn,.btn{line-height:35px;height:35px;padding:0 15px !important;text-align:cen
         <input type="text" name="email" value="" id="wr_email" class="frm_input email" placeholder="이메일(@포함 입력 바랍니다.)">
     </div>
     <br>
-<div class="font_noto f_wet_05 txt_20">기타문의</div>
+	<div class="font_noto f_wet_05 txt_20">기타문의</div>
 
     <div class="write_div">
         <div class="wr_content ">
-<textarea id="wr_content" name="wr_content" class="" maxlength="65536" style="width:100%;height:300px"></textarea></div>
+<textarea id="wr_content" name="content" class="" maxlength="3000" style="width:100%;height:300px"></textarea></div>
         
     </div>
     <div class="btn_confirm write_div">
