@@ -254,7 +254,6 @@ a.btn,.btn{line-height:35px;height:35px;padding:0 15px !important;text-align:cen
         
     </div>
     <div class="btn_confirm write_div">
-        <a href="./" class="btn_cancel btn">취소</a>
         <input type="submit" value="작성완료" id="btn_submit" accesskey="s" class="btn_submit btn">
     </div>
     </form>
