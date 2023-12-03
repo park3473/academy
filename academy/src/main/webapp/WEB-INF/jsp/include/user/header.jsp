@@ -50,6 +50,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/imageMapResizer.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/navi.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/menu.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/home_java.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/aos.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />

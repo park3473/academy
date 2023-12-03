@@ -318,5 +318,18 @@ public class UserController {
 		
 	}
 	
+	@RequestMapping(value="/view/menu/list.do" , method = RequestMethod.POST , produces = "application/json; charset=utf8")
+	@ResponseBody
+	public ModelMap UserMenuList(@ModelAttribute("MenuVo")MenuVo MenuVo , HttpServletRequest request , HttpServletResponse response) {
+		ModelMap model = new ModelMap();
+		
+		List<?> list = menuService.getMenuList();
+		
+		model.put("list", list);
+		
+		return model;
+		
+	}
+	
 	
 }

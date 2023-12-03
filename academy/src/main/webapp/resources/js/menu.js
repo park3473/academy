@@ -1,58 +1,45 @@
-$.ajax({
-			url : '/view/menu.do',
-			type : 'POST',
-			dataType : 'json',
-			success : function(data , status , xhr){
+$(document).ready(function(){
+	$.ajax({
+	
+		url : '/view/menu/list.do',
+		type : 'POST',
+		success : function(data , status , xhr){
 				
-				console.log('success : ' + status);
 				console.log(data);
-				var html = '';
-				for(i =0; i < data.list.length; i ++){
-					
-					
-					if(data.list[i].depth == 0){
-						if(data.list[i].UNDER_CNT > 0){
-							
-							html += `<li><a href="#"><span>`+data.list[i].name+`</span></a>`;
-							html += `<ul class="depth2">`;
-							
-							var j_cnt = data.list[i].UNDER_CNT;
-							
-							console.log(j_cnt);
-							for(j=0; j < j_cnt; j++){
-								
-								
-								i += 1;
-								console.log(data.list[i]);
-								if(data.list[i].link == null || data.list[i].link == ''){
-								
-									html +=`<li><a href="#"><span>`+data.list[i].name+`</span></a></li>`;
-									
-								}else{
-									
-									html +=`<li><a href="`+data.list[i].link+`"><span>`+data.list[i].name+`</span></a></li>`;
-									
-								}
-								
-							}
-							
-							html += `</ul>`;
-							html += `</li>`;
-							
-							
-						}else{
-							
-							html += `<li><a href="#"><span>`+data.list[i].name+`</span></a></li>`;
-							
-						}	
-					}else{
-								
-					}
-					
-				}
-				//메뉴 부분 구성
-				console.log(html);
-				$('#menu_list').append(html);
+			
+				var data = data.list;
+				
+				var menu = $("#menu_list");
+	
+		        var currentDepth1 = null;
+		        var currentDepth2 = null;
+		        var depth1UL = null;
+	
+		        for (var i = 0; i < data.length; i++) {
+		            var item = data[i];
+		            if (item.depth === 0) {
+		                // Create a new top-level list item
+		                var listItem = $("<li></li>");
+		                var anchor = $("<a></a>").attr("href", item.link).append("<span>" + item.name + "</span>");
+		                listItem.append(anchor);
+	
+		                // Create a new sub-menu for depth 1 items
+		                depth1UL = $("<ul class='depth2'></ul>");
+		                listItem.append(depth1UL);
+		                menu.append(listItem);
+	
+		                currentDepth1 = listItem;
+		                currentDepth2 = depth1UL;
+		            } else if (item.depth === 1) {
+		                // Create a new list item for depth 1 items
+		                var listItem = $("<li></li>");
+		                var anchor = $("<a></a>").attr("href", item.link).append("<span>" + item.name + "</span>");
+		                listItem.append(anchor);
+	
+		                // Append it to the current depth 2 ul
+		                currentDepth2.append(listItem);
+		            }
+		        }
 				
 				//메뉴 부분 navi 설정
 				var header = $("#header");
@@ -121,4 +108,6 @@ $.ajax({
 				console.log('error : ' + status);
 				
 			}
-		})
+		});
+		
+});
