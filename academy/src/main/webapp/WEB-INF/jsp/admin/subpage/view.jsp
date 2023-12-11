@@ -57,7 +57,7 @@
                                         </li>
                                         <li>
                                         	<span class="list_t">페이지 내용</span>
-                                        	<textarea name="content" id="editor"></textarea>
+                                        	<textarea name="content" id="editor">${model.view.content }</textarea>
                                         </li>
                                     </ul>
                                 </div>
@@ -107,13 +107,11 @@ $(document).ready(function () {
 	    backgroundColor: "#fff"
 	});
 	
-	console.log(`${model.view.content }`);
 	
 	ClassicEditor
     .create(document.querySelector('#editor'))
     .then(editor => {
         window.editorInstance = editor; // 전역 변수에 인스턴스 저장
-        editor.setData(`${model.view.content }`);
     })
     .catch(error => {
         console.error(error);

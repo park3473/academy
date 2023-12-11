@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -60,66 +61,18 @@
 </div>
 </div>
 <!--셀렉트박스끝-->
-<!--
-<script type="text/javascript">
-	
-	$.ajax({
-		url : '/view/menu/list.do',
-		type : 'POST',
-		success : function(data , status , xhr){
-		
-			console.log(data);
-			
-			var data = data.list;
-			
-			var menu = $("#menu_list");
-
-	        var currentDepth1 = null;
-	        var currentDepth2 = null;
-	        var depth1UL = null;
-
-	        for (var i = 0; i < data.length; i++) {
-	            var item = data[i];
-	            if (item.depth === 0) {
-	                // Create a new top-level list item
-	                var listItem = $("<li></li>");
-	                var anchor = $("<a></a>").attr("href", item.link).append("<span>" + item.name + "</span>");
-	                listItem.append(anchor);
-
-	                // Create a new sub-menu for depth 1 items
-	                depth1UL = $("<ul class='depth2'></ul>");
-	                listItem.append(depth1UL);
-	                menu.append(listItem);
-
-	                currentDepth1 = listItem;
-	                currentDepth2 = depth1UL;
-	            } else if (item.depth === 1) {
-	                // Create a new list item for depth 1 items
-	                var listItem = $("<li></li>");
-	                var anchor = $("<a></a>").attr("href", item.link).append("<span>" + item.name + "</span>");
-	                listItem.append(anchor);
-
-	                // Append it to the current depth 2 ul
-	                currentDepth2.append(listItem);
-	            }
-	        }
-			
-		},
-		error : function(error , status , xhr){
-			
-			console.log('error');
-			
-		}
-		
-	})
-</script>
--->
 <!--메뉴-->
 <div class="gnb-area">
 <!--카테고리-->
 
-<ul class="gnb-menu gnb-menu-pc" id="menu_list">
-
+<ul class="gnb-menu gnb-menu-pc ${sessionScope.UserLevel }" id="menu_list">
+	<c:if test="${sessionScope.UserLevel == '73' }">
+		<script>
+			$(document).ready(function(){
+				$('#menu_list').find('li').last().append('<li><a href="/admin/index.do">관리자 홈페이지</a></li>');
+			})
+		</script>
+	</c:if>
 </ul>
 
 <!-- 
