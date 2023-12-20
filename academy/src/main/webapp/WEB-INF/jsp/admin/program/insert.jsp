@@ -61,13 +61,13 @@
                         <div class="sc_con" id="div_con">
                             <div class="title">
                                 <span></span>
-                                <span>게시글 등록</span>
+                                <span>교육과정 등록</span>
                             </div>
                             <div class="member_register_wrap">
                                 <div class="member_input_wrap">
                                     <ul class="member_input">
                                         <li>
-                                        	<span class="list_t">프로그램 명</span>
+                                        	<span class="list_t">과정 명</span>
                                         	<input class="input_title" type="text" name="title" id="title" >
                                         </li>
                                         <li>
@@ -123,7 +123,7 @@
                                         	<input type="text" name="explan" id="explan" class="input_title" />
                                         </li>
                                         <li>
-                                        	<span class="list_t">프로그램 내용</span>
+                                        	<span class="list_t">과정 내용</span>
                                         	<textarea id="editor"></textarea>
                                         </li>
                                     </ul>
@@ -134,7 +134,7 @@
                         <!--저장하기 버튼-->
                         <div class="register_btn_area">
                             <div class="register_btn_con">
-                                <a class="storage" href="javascript:insertClick()">프로그램 저장</a>
+                                <a class="storage" href="javascript:insertClick()">과정 저장</a>
                                 <a class="cancel" href="javascript:history.back()">취소하기</a>
                             </div>
                         </div>

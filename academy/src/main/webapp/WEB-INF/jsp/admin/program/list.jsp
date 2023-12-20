@@ -40,7 +40,7 @@
                         <div class="sc_con">
                             <div class="title">
                                 <span></span>
-                                <span>프로그램 관리</span>
+                                <span>교육과정 관리</span>
                             </div>
                             <div class="member_seach_form">
                                 <div class="member_01_wrap">
@@ -95,7 +95,7 @@
                                             ${fn:substring(item.update_tm,0,11)}
                                         </td>
                                         <td>
-                                        	<button type="button" onclick="location.href='/admin/program/view.do?idx=${item.idx}'" >프로그램 관리</button>
+                                        	<button type="button" onclick="location.href='/admin/program/view.do?idx=${item.idx}'" >교육과정 관리</button>
                                         </td>
                                     </tr>
                                     </c:forEach>
@@ -107,7 +107,7 @@
                                 <div class="adm_btn_wrap stats_btn_area">
                                     <ul>
                                     <li class="delete">
-                                        <a href="./insert.do">프로그램 생성</a>
+                                        <a href="./insert.do">교육과정 생성</a>
                                     </li>
                                 </ul>
                                 </div>

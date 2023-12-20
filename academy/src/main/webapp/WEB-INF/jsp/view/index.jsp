@@ -84,7 +84,7 @@
         <div class="carousel-item active">
             <div class="carousel-caption">
                 <div class="font_noto f_wet_01 gray_00">
-                    <div class="txt_64"><span class="f_wet_05">KAIST 교육원 운영팀</span></div>
+                    <div class="txt_64"><span class="f_wet_05">KAIST 교육원</span></div>
                     <div class="txt_32 txt_just">KAIST 교육원 산하 부서 간 업무를 조정하고, 교육원 발전 및 개선 방안을 마련하는 등 <br class="c_hide"> 교육원 내 컨트롤타워 역할을 담당하고 있습니다</div>
                 </div>
             </div>

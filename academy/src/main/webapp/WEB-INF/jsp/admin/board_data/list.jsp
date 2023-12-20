@@ -42,7 +42,7 @@
                                     <tr>
                                         <th class="check"><input type="checkbox" class="" name="chk_calc_all" id="chk_calc_all" value=""></th>
                                         <th class="number">번호</th>
-                                        <th class="title">게시판 제목</th>
+                                        <th class="title">게시글 제목</th>
                                         <th class="name">작성자 이름</th>
                                         <th class="member_id">작성자 아이디</th>
                                         <th class="create">게시글 생성 일자</th>
@@ -64,7 +64,7 @@
                                         </td>
                                         <td>
                                         	<button type="button" onclick="location.href='/admin/board_data/view.do?idx=${item.idx}&board_idx=${item.board_idx }'">관리</button>
-                                        	<button type="button" onclick="location.href='/user/board_data/view.do?idx=${item.idx}&board_idx=${item.board_idx }'">미리보기</button>
+                                        	<!-- <button type="button" onclick="location.href='/user/board_data/view.do?idx=${item.idx}&board_idx=${item.board_idx }'">미리보기</button> -->
                                         </td>
                                     </tr>
                                     </c:forEach>

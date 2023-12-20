@@ -55,11 +55,15 @@
                                             <label>무</label>
                                         </li>
                                         <li>
-                                            <span class="list_t">썸네일 여부</span>
+                                            <span class="list_t">게시판 타입</span>
                                             <input type="radio" name="type" id="type" value="0" checked>
-                                            <label>일반</label>
+                                            <label>공지사항</label>
                                             <input type="radio" name="type" id="type" value="1" >
-                                            <label>썸네일</label>
+                                            <label>갤러리</label>
+                                            <input type="radio" name="type" id="type" value="2" >
+                                            <label>교육문의</label>
+                                            <input type="radio" name="type" id="type" value="3" >
+                                            <label>FAQ</label>
                                         </li>
                                         <li>
                                             <span class="list_t">파일 여부</span>

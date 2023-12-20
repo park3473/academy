@@ -69,8 +69,9 @@
                                             <a href="${pageContext.request.contextPath}/admin/board/list.do">게시판 리스트</a>
                                         </li>
                                         <li <c:if test="${fn:indexOf(fullURL, 'board/insert') > -1}">class="nav_active"</c:if>>
-                                            <a href="${pageContext.request.contextPath}/admin/board/list.do">게시판 생성</a>
+                                            <a href="${pageContext.request.contextPath}/admin/board/insert.do">게시판 생성</a>
                                         </li>
+                                        <c:if test="${fn:indexOf(fullURL, '/board_data/') > -1}">
                                         <li <c:if test="${fn:indexOf(fullURL, '/board_data/') > -1}">class="nav_active"</c:if>>
                                         <a href="#">게시글 관리</a>
                                         <c:if test="${fn:indexOf(fullURL , '/board_data/') > -1}">
@@ -78,12 +79,15 @@
 		                                        <li <c:if test="${fn:indexOf(fullURL, 'board_data/list') > -1}">class="nav_active"</c:if>>
 		                                            <a href="#">게시글 리스트</a>
 		                                        </li>
+		                                        <c:if test="${fn:indexOf(fullURL, 'board_data/insert') > -1}">
 		                                        <li <c:if test="${fn:indexOf(fullURL, 'board_data/insert') > -1}">class="nav_active"</c:if>>
 		                                            <a href="#">게시글 생성</a>
 		                                        </li>
+		                                        </c:if>
 	                                        </ul>
                                         </c:if>
                                         </li>
+                                        </c:if>
                                     </ul>
                                 </li>
                                 <li <c:if test="${fn:indexOf(fullURL , '/menu/') > -1}">
@@ -127,13 +131,13 @@
                                     <ul class="sub_menu_con">
                                         <div class="title notosans">
                                             <span></span>
-                                            <span>프로그램 관리</span>
+                                            <span>교육과정 관리</span>
                                         </div>
                                         <li <c:if test="${fn:indexOf(fullURL, '/program/list') > -1}">class="nav_active"</c:if>>
-                                            <a href="${pageContext.request.contextPath}/admin/program/list.do">프로그램 리스트</a>
+                                            <a href="${pageContext.request.contextPath}/admin/program/list.do">과정 리스트</a>
                                         </li>
                                         <li <c:if test="${fn:indexOf(fullURL, '/program/insert') > -1}">class="nav_active"</c:if>>
-                                            <a href="${pageContext.request.contextPath}/admin/program/insert.do">프로그램 생성</a>
+                                            <a href="${pageContext.request.contextPath}/admin/program/insert.do">과정 생성</a>
                                         </li>
                                         <li <c:if test="${fn:indexOf(fullURL, '/tags/list.do') > -1}">class="nav_active"</c:if>>
                                             <a href="${pageContext.request.contextPath}/admin/tags/list.do">태그 관리</a>

@@ -34,6 +34,8 @@
 
 
 <!--본문-->
+<!-- 갤러리는 따로 -->
+<c:if test="${model.BoardConfig.type != '1' }">
 <section id="adm_sc">
     <div id="adm_sc_area">
         <div id="adm_sc_con">
@@ -45,8 +47,8 @@
                     <form action="./insert.do" method="post" name="insertForm" id="insertForm" enctype="multipart/form-data">
                         <input type="hidden"  name="csrf" value="${CSRF_TOKEN}" />
                         <input type="hidden" name="board_idx" value="${model.BoardConfig.idx }"  />
-                        <input type="hidden" name="level" value="1"  />
-                        <input type="hidden" name="type" value="1"  />
+                        <input type="hidden" name="level" value="${model.BoardConfig.level }"  />
+                        <input type="hidden" name="type" value="${model.BoardConfig.type }"  />
                         <input type="hidden" name="image" value=""  />
                         <input type="hidden" name="member_id" value="${sessionScope.UserId }"  />
                         <input type="hidden" name="name" value="${sessionScope.UserName }"  />
@@ -99,6 +101,75 @@
         </div>
     </div>
 </section>
+</c:if>
+<!-- 갤러리 -->
+<c:if test="${model.BoardConfig.type == '1' }">
+<section id="adm_sc">
+    <div id="adm_sc_area">
+        <div id="adm_sc_con">
+            <div class="adm_sc_size">
+
+                <!--본문 내용-->
+                <section class="adm_sc_txt">
+                	<div>
+                    <form action="./insert.do" method="post" name="insertForm" id="insertForm" enctype="multipart/form-data">
+                        <input type="hidden"  name="csrf" value="${CSRF_TOKEN}" />
+                        <input type="hidden" name="board_idx" value="${model.BoardConfig.idx }"  />
+                        <input type="hidden" name="level" value="${model.BoardConfig.level }"  />
+                        <input type="hidden" name="type" value="${model.BoardConfig.type }"  />
+                        <input type="hidden" name="image" value=""  />
+                        <input type="hidden" name="member_id" value="${sessionScope.UserId }"  />
+                        <input type="hidden" name="name" value="${sessionScope.UserName }"  />
+                        <div class="sc_con" id="div_con">
+                            <div class="title">
+                                <span></span>
+                                <span>게시글 등록</span>
+                            </div>
+                            <div class="member_register_wrap">
+                                <div class="member_input_wrap">
+                                    <ul class="member_input">
+                                        <li>
+                                            <span class="list_t">게시판 명</span>
+                                            <input class="input_size mr" type="text" id="name" value="${model.BoardConfig.name }" readonly="readonly">
+                                        </li>
+                                        <li>
+                                        	<span class="list_t">게시글 제목</span>
+                                        	<input class="input_title" type="text" name="title" id="title" >
+                                        </li>
+                                        <c:if test="${model.BoardConfig.file == 'TRUE' }">
+                                        <c:forEach var="i" end="${model.BoardConfig.file_cnt}" begin="1">
+                                        <li>
+                                           	<span class="list_t">썸네일선택</span>
+                                            <input type="file" id="file" name="file${i}">
+                                        </li>
+                                        </c:forEach>
+                                        </c:if>
+                                        <li>
+                                        	<span class="list_t">게시글 내용</span>
+                                        	<textarea name="content" id="editor"></textarea>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--저장하기 버튼-->
+                        <div class="register_btn_area">
+                            <div class="register_btn_con">
+                                <a class="storage" href="javascript:insertClick()">게시글 저장</a>
+                                <a class="cancel" href="javascript:history.back()">취소하기</a>
+                            </div>
+                        </div>
+                        <!--저장하기 버튼 end-->
+                        </form>
+                    </div>
+                </section>
+                <!--본문 내용 end-->
+            </div>
+        </div>
+    </div>
+</section>
+</c:if>
 <!--본문 end-->
 
 <!--푸터-->

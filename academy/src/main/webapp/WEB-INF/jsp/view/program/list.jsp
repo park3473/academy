@@ -104,11 +104,13 @@
         }
         
         #search-box .search-button {
-            position: absolute;
-            right: 0;
-            top: 0;
 			font-size:24px;
 			background:#000;color:#fff;height:40px;width:60px;line-height:40px;font-weight:bold
+        }
+        
+        #search-box .action-buttons{
+            position: relative;
+    		left: 79%;
         }
         
         #search-box .action-buttons button {
@@ -193,27 +195,23 @@
 <!-- 타이틀 -->
 <div class="b_pad_30 container gray_10">
 	 <div id="search-box">
-        <!-- Search Container -->
-        <div class="search-container">
-            <input type="text" placeholder="Search">
-            <button class="search-button font_noto" onclick="search()"><i class="las la-search"></i></button> <!-- You can replace this with an image -->
-        </div>
         
         <!-- Action Buttons -->
         <div class="action-buttons">
-            <button class="reset-button" onclick="tag_check_out()">초기화</button>
-            <button class="detail-button" id="detail-button" onclick="select_table()" style="background:#01438f">상세 검색</button>
+            <button class="reset-button" onclick="location.href='/view/program/list.do'">초기화</button>
+            <button class="detail-button" id="detail-button" onclick="select_table()" style="background:#01438f">검색 활성화</button>
+            <button class="search-button font_noto" onclick="search()"><i class="las la-search"></i></button>
         </div>
     </div>
     <div>
-			<table id="select_table">
+			<table id="select_table" before-data="${model.beforeData.tags }">
 				<tbody>
           <c:forEach var="entry" items="${model.groupedTags}">
             <tr>
               <td>${entry.key}</td>
               <td>
                 <c:forEach var="tag" items="${entry.value}">
-                  <input type="checkbox" name="tags" value="${tag}"> ${tag}
+                  <input type="checkbox" name="tags" value="%23${tag}"> ${tag}
                 </c:forEach>
               </td>
             </tr>
@@ -253,6 +251,18 @@
 <%@ include file="../../include/user/footer.jsp" %>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script type="text/javascript">
+
+$(document).ready(function(){
+	
+	var tags = '${model.beforeData.tags}';
+	var tag_list = [];
+	tag_list = tags.split('#');
+	for(i = 1; i < tag_list.length; i++){
+		console.log(tag_list[i]);
+		$('input[type="checkbox"][name="tags"][value="%23'+tag_list[i]+'"]').prop('checked', true);
+	}
+});
+
 function search(){
 	
 	let tagsStr = [];

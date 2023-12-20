@@ -90,15 +90,6 @@ public class AdminBoardDataContorller {
 	@RequestMapping(value="/admin/board_data/insert.do" , method = RequestMethod.POST)
 	public void AdminBoardDataInsert(@ModelAttribute("AdminBoardDataVo")AdminBoardDataVo AdminBoardDataVo , MultipartHttpServletRequest request , HttpServletResponse response) throws IOException {
 		
-		//먼저 게시글 입력하여 번호 가져와야됨
-		String insert_idx = adminBoardDataService.setBoardData(AdminBoardDataVo , "insert");
-		
-		System.out.println("Board_data_idx : " + insert_idx);
-		System.out.println("Board_idx : " + AdminBoardDataVo.getBoard_idx());
-		
-		String Board_data_idx = insert_idx;
-		String Board_idx = AdminBoardDataVo.getBoard_idx();
-		
 		FileVo filevo = new FileVo();
 		
 		//파일 등록
@@ -109,6 +100,19 @@ public class AdminBoardDataContorller {
 		
 		String files[] = filename.split(",");
 		
+		if(AdminBoardDataVo.getType().equals("1")) {
+			System.out.println("Image :" +  files[0]);
+			AdminBoardDataVo.setImage(files[0]);
+		}
+		
+		//먼저 게시글 입력하여 번호 가져와야됨
+		String insert_idx = adminBoardDataService.setBoardData(AdminBoardDataVo , "insert");
+		
+		System.out.println("Board_data_idx : " + insert_idx);
+		System.out.println("Board_idx : " + AdminBoardDataVo.getBoard_idx());
+		
+		String Board_data_idx = insert_idx;
+		String Board_idx = AdminBoardDataVo.getBoard_idx();
 		
 		for(int i = 0; i < files.length; i ++) {
 			
@@ -129,6 +133,7 @@ public class AdminBoardDataContorller {
 				filevo.setBoard_data_idx(Board_data_idx);
 				
 				fileService.setFileData(filevo);
+				
 				
 			}
 			
