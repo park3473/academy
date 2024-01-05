@@ -22,10 +22,13 @@ public class AdminProgramVo extends SearchVo{
 	String create_tm = "";
 	String update_tm = "";
 	
+	String finish = "";				//종료 여부
+	
 	String image_change_bool = "";
 	
 	String tagType = "";		//태그 여부
 	String tags = "";
+	
 	
 	//태그들 분배
 	public List<String> getTagList() {
@@ -144,6 +147,14 @@ public class AdminProgramVo extends SearchVo{
 
 	public void setImage_change_bool(String image_change_bool) {
 		this.image_change_bool = image_change_bool;
+	}
+
+	public String getFinish() {
+		return finish;
+	}
+
+	public void setFinish(String finish) {
+		this.finish = finish;
 	}
 	
 	

@@ -166,7 +166,7 @@ public class UserBoardDataServiceImpl implements UserBoardDataService {
 		ModelMap model = new ModelMap();
 		
 		//공지 가져올갯수
-		int NoticeCnt = 3;
+		int NoticeCnt = 5;
 		
 		//갤러리 가져올갯수
 		int InfoCnt = 3;

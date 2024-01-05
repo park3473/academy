@@ -14,6 +14,12 @@
 	    		#{tag}
 	    	</foreach>
 	    </if>
+	    <if test="finish == 'yes'">
+	    	AND NOW() > end_tm
+	    </if>
+	    <if test="finish == 'no'">
+	    	AND  NOW() BETWEEN start_tm AND end_tm
+	    </if>
 	    <if test="UP != ''">
 	    	order by ${UP} asc
 	    </if>

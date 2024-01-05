@@ -28,6 +28,7 @@
 
 <nav id="nav">
 <div class="nav-inner">
+<button type="button" class="btn-gnb-close ico-close"><span class="blind">메뉴닫기</span></button>
 <div class="util-menu">
 
 <!--인사말및 로고처리-->
@@ -136,7 +137,7 @@
 
 <ul class="gnb-menu gnb-menu-mo">
 	<li>
-	<a href="/view/subpage/view.do?idx=1"><span>기관소개</span></a>
+	<a href="#"><span>기관소개</span></a>
 	<ul class="depth2">
 	<li><a href="/view/subpage/view.do?idx=1"><span>원장인사말</span></a></li>
 	<li><a href="/view/subpage/view.do?idx=13"><span>연혁</span></a></li>
@@ -147,7 +148,7 @@
 	</li>
 
 	<li>
-	<a href="/view/subpage/view.do?idx=9"><span>교육소개</span></a>
+	<a href="#"><span>교육소개</span></a>
 	<ul class="depth2">
 	<li><a href="/view/subpage/view.do?idx=9"><span>비학위연수과정</span></a></li>
 	<li><a href="/view/subpage/view.do?idx=10"><span>마이크로디그리 과정</span></a></li>
@@ -160,7 +161,7 @@
 	</li>
 
 	<li>
-	<a href="/view/program/list.do?tags=비학위연수과정"><span>교육과정</span></a>
+	<a href="#"><span>교육과정</span></a>
 	<ul class="depth2">
 		<li><a href="/view/program/list.do?tags=비학위연수과정"><span>비학위연수과정</span></a></li>
 	<li><a href="/view/program/list.do"><span>마이크로디그리과정</span></a></li>
@@ -170,14 +171,14 @@
 	</li>
 
 	<li>
-	<a href="/view/subpage/view.do?idx=8"><span>온라인 컨텐츠</span></a>
+	<a href="#"><span>온라인 컨텐츠</span></a>
 	<ul class="depth2">
 	<li><a href="/view/subpage/view.do?idx=8"><span>MOOCs</span></a></li>
 	</ul>
 	</li>
 
 	<li>
-	<a href="/user/board_data/list.do?board_idx=1"><span>커뮤니티</span></a>
+	<a href="#"><span>커뮤니티</span></a>
 	<ul class="depth2">
 	<li><a href="/user/board_data/list.do?board_idx=1"><span>공지사항</span></a></li>
 	<li><a href="/user/board_data/insert.do?board_idx=3"><span>교육문의</span></a></li>
@@ -221,6 +222,5 @@
 	.gnb-menu-mo {display:block !important;}
 	}
 </style>
-<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/navi.js"></script>
 
 <!-- 메뉴는 기초 만들어두시면 그에 맞게 개발될 예정 -->

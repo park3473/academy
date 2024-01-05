@@ -85,7 +85,22 @@
     background: #000;
     border: none;
   }
-
+  
+  input[type="radio"] {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 2px;
+    border: 1px solid #dedede;
+    appearance: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top:-3px;
+	vertical-align: middle;
+  }
+  input[type="radio"]:checked {
+    background: #000;
+    border: none;
+  }
 
     /* Search Box and Buttons */
         #search-box {
@@ -110,7 +125,7 @@
         
         #search-box .action-buttons{
             position: relative;
-    		left: 79%;
+    		left: 88%;
         }
         
         #search-box .action-buttons button {
@@ -118,7 +133,7 @@
     		outline: none;
         	padding: 10px 24px;
     		font-size: 14px;
-            background-color:#000;
+            background-color:#01438f;
             border: 1px solid black;
             border-radius: 0px;
 			cursor: pointer;
@@ -199,7 +214,6 @@
         <!-- Action Buttons -->
         <div class="action-buttons">
             <button class="reset-button" onclick="location.href='/view/program/list.do'">초기화</button>
-            <button class="detail-button" id="detail-button" onclick="select_table()" style="background:#01438f">검색 활성화</button>
             <button class="search-button font_noto" onclick="search()"><i class="las la-search"></i></button>
         </div>
     </div>
@@ -216,6 +230,14 @@
               </td>
             </tr>
           </c:forEach>
+          	<tr>
+          		<td>상태</td>
+          		<td>
+          			<input type="radio" name="finish" value="" <c:if test="${model.beforeData.finish == '' }">checked="checked"</c:if> >전체
+          			<input type="radio" name="finish" value="no" <c:if test="${model.beforeData.finish == 'no' }">checked="checked"</c:if> >진행과정
+          			<input type="radio" name="finish" value="yes" <c:if test="${model.beforeData.finish == 'yes' }">checked="checked"</c:if> >종료과정
+          		</td>
+          	</tr>
 				</tbody>
 			</table>
 		</div>
@@ -271,7 +293,16 @@ function search(){
     });
     tagsStr = tagsStr.join("");
 	
-	location.href='/view/program/list.do?tags='+tagsStr;
+    if($('[name="finish"]:checked').val() == ''){
+    	
+    	location.href='/view/program/list.do?tags='+tagsStr;
+    	
+    }else{
+    	
+    	location.href='/view/program/list.do?tags='+tagsStr+'&finish='+$('[name="finish"]:checked').val();
+    	
+    }
+	
 	
 }
 

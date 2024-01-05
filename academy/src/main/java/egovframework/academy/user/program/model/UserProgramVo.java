@@ -21,6 +21,8 @@ public class UserProgramVo extends SearchVo{
 	String create_tm = "";
 	String update_tm = "";
 	
+	String finish = "";
+	
 	String image_change_bool = "";
 	
 	String tagType = "";		//태그 여부
@@ -166,6 +168,14 @@ public class UserProgramVo extends SearchVo{
 
 	public void setTags(String tags) {
 		this.tags = tags;
+	}
+
+	public String getFinish() {
+		return finish;
+	}
+
+	public void setFinish(String finish) {
+		this.finish = finish;
 	}
 	
 	

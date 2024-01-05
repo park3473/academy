@@ -233,11 +233,11 @@ a.btn,.btn{line-height:35px;height:35px;padding:0 15px !important;text-align:cen
 		<input type="text" name="title" value="" id="title" required="" class="frm_input required" style="width:100%;">
 	</div>
 	
-	<div class="font_noto f_wet_05 txt_20">고객정보</div>
+	<div class="font_noto f_wet_05 txt_20">문의정보</div>
 
     <div class="bo_w_info write_div">
-        <input type="text" name="company" value="" id="company" required="" class="frm_input required" placeholder="회사명">
-        <input type="text" name="name" value="" id="name" required="" class="frm_input gab required" placeholder="담당자명">
+        <input type="text" name="company" value="" id="company" required="" class="frm_input required" placeholder="부서명">
+        <input type="text" name="name" value="" id="name" required="" class="frm_input gab required" placeholder="성명">
         <input type="text" name="password" value="" id="name" required="" class="frm_input gab required" oninput="this.value = this.value.replace(/[^0-9]/g, '')" maxlength="4" placeholder="비밀번호(숫자4자리)">
     </div>
     <div class="bo_w_info write_div">

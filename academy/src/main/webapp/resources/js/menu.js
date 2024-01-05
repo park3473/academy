@@ -63,10 +63,6 @@ $(document).ready(function(){
 					depth2_close(this);
 				});
 
-				// Mobile GNB 2Depth
-				$(".gnb-menu li > a").on("click",function () {
-					m_depth2_open(this);
-				});
 
 				// 언어 선택
 				$(".lang-list").children(".lang").on("click",function () {

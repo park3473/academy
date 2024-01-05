@@ -30,7 +30,7 @@
 #carousel11_indicator .carousel-indicators {bottom:8%;}
 .kaist-box_01 {min-height:inherit !important;}
 .notice_bg {background: url(${pageContext.request.contextPath}/resources/img/main_cont_bg.png) no-repeat rgb(1 67 143) center; flex-direction:column; justify-content:space-between;}
-.notice_cont {padding:20px 0; font-size: 16px; border-bottom: 0.1px solid #666;}
+.notice_cont {padding:5px 0; font-size: 16px; border-bottom: 0.1px solid #666;}
 .notice_cont:first-child {border-top: 2px solid #333;}
 .notice_cont:last-child {border-bottom: 2px solid #333;}
 .notice_cont .day_01 {margin-bottom:0;}
@@ -88,7 +88,7 @@
                     <div class="txt_32 txt_just">KAIST 교육원 산하 부서 간 업무를 조정하고, 교육원 발전 및 개선 방안을 마련하는 등 <br class="c_hide"> 교육원 내 컨트롤타워 역할을 담당하고 있습니다</div>
                 </div>
             </div>
-            <img src="${pageContext.request.contextPath}/resources/img/main_bg_03.jpg" class="ani">
+            <img src="${pageContext.request.contextPath}/resources/img/main_bg_02.jpg" class="ani">
         </div>
         <div class="carousel-item">
             <div class="carousel-caption">
@@ -97,7 +97,7 @@
                     <div class="txt_32 txt_just">KAIST 교수-학습활동을 적극 지원하며, 기업체 및 연구소와의 교육협약을 통해 <br class="c_hide"> 과학기술 인력들의 전문성과 역량강화를 위한 e-Learning과정을 제공합니다.</div>
                 </div>
             </div>
-            <img src="${pageContext.request.contextPath}/resources/img/main_bg_02.jpg" class="ani">
+            <img src="${pageContext.request.contextPath}/resources/img/main_bg_06.jpg" class="ani">
         </div>
         <div class="carousel-item">
             <div class="carousel-caption">
@@ -312,3 +312,4 @@ $(function() {
 <!--공통하단-->
 <%@ include file="../include/user/footer.jsp" %>
 <script type="text/javascript">
+</script>
